@@ -1,7 +1,5 @@
 import { Request, Response } from "express";
 import { User } from "../models/User";
-import { isNonNullExpression } from "typescript";
-import { IsNull } from "typeorm";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
@@ -62,36 +60,30 @@ const login = async (req: Request, res: Response) => {
   
       if (!bcrypt.compareSync(password, user.password)) {
         return res.status(400).json(
-          {
-            success: true,
-            message: 'User or password incorrect',
-          }
+          { success: true,
+            message: 'User or password incorrect',}
         )
       }
   
       const token = jwt.sign(
-        {
-          id: user.id,
+        { id: user.id,
           role: user.role,
           email: user.email
         },
         "BE$UG0",
-        {
-          expiresIn: "12h",
+        { expiresIn: "12h",
         }
       );
   
       return res.json(
-        {
-          success: true,
+        { success: true,
           message: "User logged succesfully",
           token: token
         }
       )
     } catch (error) {
       return res.status(500).json(
-        {
-          success: false,
+        { success: false,
           message: "users cant be logged",
           error: error
         }
@@ -99,6 +91,27 @@ const login = async (req: Request, res: Response) => {
     }
   }
 
+const profile = async (req: Request, res: Response) => {
+    try {
+        const user = await User.findOneBy( 
+            {  id: req.token.id } )
+        return res.json(
+        {
+          success: true,
+          message: "Profile user retrieved",
+          data: user
+        }
+      )
+    } catch (error) {
+      return res.json(
+        {
+          success: false,
+          message: "user profile cant be retrieved",
+          error: error
+        }
+      )
+    }
+  } 
 
-  
-export { register, login }
+
+export { register, login, profile}
