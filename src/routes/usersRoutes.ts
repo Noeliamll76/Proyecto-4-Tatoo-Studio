@@ -1,7 +1,5 @@
 import { Router } from "express";
-import { register } from "../controllers/usersController";
-import { login } from "../controllers/usersController";
-import { profile } from "console";
+import { register, login, profile } from "../controllers/usersController";
 import { auth } from "../middlewares/auth";
 
 
