@@ -65,7 +65,7 @@ export class Appointment1698434620669 implements MigrationInterface {
                         referencedTableName: "tattoo_artist",
                         referencedColumnNames: ["id"],
                         onDelete: "CASCADE",
-                    }
+                 }
                 ]
             }),
             true

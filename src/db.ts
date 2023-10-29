@@ -1,5 +1,6 @@
 import "reflect-metadata"
-import{DataSource} from "typeorm"
+import { DataSource } from "typeorm"
+
 import { User } from "./models/User"
 import { Tattoo_artist } from "./models/Tattoo_artist"
 import { User1698358561900 } from "./migration/1698358561900-user"
