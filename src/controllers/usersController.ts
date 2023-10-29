@@ -99,7 +99,6 @@ const login = async (req: Request, res: Response) => {
 }
 
 const profile = async (req: Request, res: Response) => {
-  console.log("antes de entrar en la busqueda del id por token.id")
   try {
     const user = await User.findOneBy(
       { id: req.token.id })
@@ -146,12 +145,12 @@ const updateUserByToken = async (req: Request, res: Response) => {
         message: "User doesnt found and cant updated",
       })
     }
-        
+
     const validarEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
     if (!email) {
       email = req.token.email
     }
-    
+
     if (!validarEmail.test(email)) {
       return res.json({ mensaje: 'Correo electrónico no válido' })
     }
@@ -163,7 +162,7 @@ const updateUserByToken = async (req: Request, res: Response) => {
           id: req.token.id
         },
         {
-         password: encryptedPassword
+          password: encryptedPassword
         })
     }
     const updateUser = await User.update(
@@ -191,5 +190,46 @@ const updateUserByToken = async (req: Request, res: Response) => {
   }
 }
 
+const deleteById = async (req: Request, res: Response) => {
+  try {
+    const user_id = req.params.id
 
-export { register, login, profile, updateUserByToken }
+    if (req.token.role === "super_admin") {
+      const user = await User.findOneBy(
+        { id: parseInt(user_id), }
+      )
+      if (!user) {
+        return res.status(400).json(
+          {
+            success: true,
+            message: 'User incorrect',
+          }
+        )
+      }
+      const userDelete = await User.delete(
+        { id: parseInt(user_id), }
+      )
+      return res.json(
+        {
+          success: true,
+          message: "You have deleted user",
+
+        })
+    }
+    else {
+      return res.json({
+        message: "It's not authorized "
+      })
+    }
+  } catch (error) {
+    return res.json(
+      {
+        success: false,
+        message: "user cant be deleted",
+        error: error
+      }
+    )
+  }
+}
+
+export { register, login, profile, updateUserByToken, deleteById }
