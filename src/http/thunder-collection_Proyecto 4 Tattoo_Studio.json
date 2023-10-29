@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "Proyecto 4 Tattoo_Studio",
-    "dateExported": "2023-10-29T17:13:45.317Z",
+    "dateExported": "2023-10-29T19:34:08.572Z",
     "version": "1.1",
     "folders": [],
     "requests": [
@@ -33,13 +33,31 @@
             "method": "POST",
             "sortNum": 20000,
             "created": "2023-10-29T16:54:13.171Z",
-            "modified": "2023-10-29T17:11:37.245Z",
+            "modified": "2023-10-29T18:59:01.223Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"email\":\"noelia@noelia.com\",\n  \"password\":\"noea\"\n}",
+                "raw": "{\n  \"email\":\"noelia@noelia.com\",\n  \"password\":\"noelia\"\n}",
                 "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "92d57fe8-4bf2-426c-ac17-3de79edd3cf0",
+            "colId": "620fd0b2-f663-41d4-a7f9-7e302374afb6",
+            "containerId": "",
+            "name": "localhost:4000/user/profile",
+            "url": "localhost:4000/user/profile",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2023-10-29T19:09:09.978Z",
+            "modified": "2023-10-29T19:09:09.978Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTUsInJvbGUiOiJzdXBlcl9hZG1pbiIsImVtYWlsIjoibm9lbGlhQG5vZWxpYS5jb20iLCJpYXQiOjE2OTg2MDU5NDEsImV4cCI6MTY5ODY0OTE0MX0.DyyzNRWGB4SQQC9oaFbhGJCw4ACZG7bUwSmGMaamYVw"
             },
             "tests": []
         }

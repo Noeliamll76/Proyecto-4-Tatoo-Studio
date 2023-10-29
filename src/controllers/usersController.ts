@@ -113,7 +113,7 @@ const profile = async (req: Request, res: Response) => {
           phone: user!.phone,
           role: user!.role,
           created_at: user!.created_at
-      }
+        }
       }
     )
   } catch (error) {
@@ -127,5 +127,69 @@ const profile = async (req: Request, res: Response) => {
   }
 }
 
+const updateUserByToken = async (req: Request, res: Response) => {
+  try {
+    const name = req.body.name
+    let email = req.body.email
+    const password = req.body.password
+    const phone = req.body.phone
 
-export { register, login, profile }
+    const user = await User.findOneBy(
+      {
+        id: req.token.id
+      }
+    )
+
+    if (!user) {
+      return res.status(404).json({
+        success: true,
+        message: "User doesnt found and cant updated",
+      })
+    }
+        
+    const validarEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
+    if (!email) {
+      email = req.token.email
+    }
+    
+    if (!validarEmail.test(email)) {
+      return res.json({ mensaje: 'Correo electrónico no válido' })
+    }
+
+    if (password) {
+      const encryptedPassword = bcrypt.hashSync(password, 10)
+      const updateUser = await User.update(
+        {
+          id: req.token.id
+        },
+        {
+         password: encryptedPassword
+        })
+    }
+    const updateUser = await User.update(
+      {
+        id: req.token.id
+      },
+      {
+        name: name,
+        email: email,
+        phone: phone
+      }
+    )
+
+    return res.json({
+      success: true,
+      message: "User updated",
+      data: updateUser
+    })
+  } catch (error) {
+    return res.json({
+      success: false,
+      message: "User cant by updated",
+      error: error
+    })
+  }
+}
+
+
+export { register, login, profile, updateUserByToken }
