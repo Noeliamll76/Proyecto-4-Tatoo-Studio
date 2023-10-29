@@ -16,6 +16,12 @@ const register = async (req: Request, res: Response) => {
         if (!validarEmail.test(email)) {
             return res.json({ mensaje: 'Correo electrónico no válido' })
         }
+
+        const user = await User.findOneBy({ email: email })
+        if (user) { 
+            return res.json({ message: 'Existing user',})
+          }
+
         const encryptedPassword = bcrypt.hashSync(password, 10)
         const newUser = await User.create({
             name: name,
@@ -29,15 +35,16 @@ const register = async (req: Request, res: Response) => {
             token: newUser
         }
         )
-    } catch (error) {
+    } catch (error) 
+    {
         return res.status(500).json({
             success: false,
             message: "User cannot be created",
             error: error
-        }
-        )
+        })
     }
 }
+
 
 
 export { register }
