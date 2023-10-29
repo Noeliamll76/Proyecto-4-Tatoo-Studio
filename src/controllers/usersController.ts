@@ -45,6 +45,60 @@ const register = async (req: Request, res: Response) => {
     }
 }
 
+const login = async (req: Request, res: Response) => {
+    try {
+      const email = req.body.email
+      const password = req.body.password
+     
+      const user = await User.findOneBy(
+        { email: email}
+      )
+        if (!user) {
+        return res.status(400).json(
+          { success: true,
+            message: 'User or password incorrect',}
+        )
+      }
+  
+      if (!bcrypt.compareSync(password, user.password)) {
+        return res.status(400).json(
+          {
+            success: true,
+            message: 'User or password incorrect',
+          }
+        )
+      }
+  
+      const token = jwt.sign(
+        {
+          id: user.id,
+          role: user.role,
+          email: user.email
+        },
+        "BE$UG0",
+        {
+          expiresIn: "12h",
+        }
+      );
+  
+      return res.json(
+        {
+          success: true,
+          message: "User logged succesfully",
+          token: token
+        }
+      )
+    } catch (error) {
+      return res.status(500).json(
+        {
+          success: false,
+          message: "users cant be logged",
+          error: error
+        }
+      )
+    }
+  }
 
 
-export { register }
+  
+export { register, login }
