@@ -22,9 +22,6 @@ password!:string
 phone!:string
 
 @Column()
-work_id!:number
-
-@Column()
 role!:string     
 
 @Column()

@@ -11,4 +11,5 @@ router.post('/login', login)
 router.get('/profile', auth, profile)
 router.put('/updateUserByToken', auth, updateUserByToken)
 router.delete('/deleteById/:id', auth, isSuperAdmin, deleteById)
+
 export {router}
