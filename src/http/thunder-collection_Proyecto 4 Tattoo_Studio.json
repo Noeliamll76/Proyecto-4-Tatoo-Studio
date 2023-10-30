@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "Proyecto 4 Tattoo_Studio",
-    "dateExported": "2023-10-29T23:43:43.930Z",
+    "dateExported": "2023-10-30T22:51:13.379Z",
     "version": "1.1",
     "folders": [],
     "requests": [
@@ -9,17 +9,17 @@
             "_id": "b2d1a37a-c152-4382-b2b4-802ce9d422c4",
             "colId": "620fd0b2-f663-41d4-a7f9-7e302374afb6",
             "containerId": "",
-            "name": "register",
+            "name": "user register",
             "url": "localhost:4000/user/register",
             "method": "POST",
             "sortNum": 10000,
             "created": "2023-10-29T13:21:06.450Z",
-            "modified": "2023-10-29T17:05:12.885Z",
+            "modified": "2023-10-30T20:41:41.067Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"name\":\"Vincenzo Donnaruma\",\n  \"email\":\"vincenzo@vincenzo.com\",\n  \"password\":\"vincenzo\",\n  \"phone\":\"632233444\"\n}",
+                "raw": "{\n  \"name\":\"Daniela Olivares\",\n  \"email\":\"daniela@daniela.com\",\n  \"password\":\"daniela\",\n  \"phone\":\"632233444\"\n}",
                 "form": []
             },
             "tests": []
@@ -28,7 +28,7 @@
             "_id": "92d57fe8-4bf2-426c-ac17-3de79edd3cf0",
             "colId": "620fd0b2-f663-41d4-a7f9-7e302374afb6",
             "containerId": "",
-            "name": "profile",
+            "name": "user profile",
             "url": "localhost:4000/user/profile",
             "method": "GET",
             "sortNum": 30000,
@@ -46,7 +46,7 @@
             "_id": "109de099-35e5-4ffe-8550-bbfb3a2962ef",
             "colId": "620fd0b2-f663-41d4-a7f9-7e302374afb6",
             "containerId": "",
-            "name": "updateUserByToken",
+            "name": "user updateUserByToken",
             "url": "localhost:4000/user/updateUserByToken",
             "method": "PUT",
             "sortNum": 40000,
@@ -69,17 +69,17 @@
             "_id": "26c4d90f-628f-42ca-af26-d0318f634738",
             "colId": "620fd0b2-f663-41d4-a7f9-7e302374afb6",
             "containerId": "",
-            "name": "deleteById",
-            "url": "localhost:4000/user/deleteById/2",
+            "name": "user deleteById",
+            "url": "localhost:4000/user/deleteById/22",
             "method": "DELETE",
             "sortNum": 50000,
             "created": "2023-10-29T23:36:44.890Z",
-            "modified": "2023-10-29T23:36:44.890Z",
+            "modified": "2023-10-30T18:27:04.625Z",
             "headers": [],
             "params": [],
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTUsInJvbGUiOiJzdXBlcl9hZG1pbiIsImVtYWlsIjoibm9lbGlhQG5vZWxpYS5jb20iLCJpYXQiOjE2OTg2MjAzMzIsImV4cCI6MTY5ODY2MzUzMn0.JfLkAFSu1hohmjDrGCxYEgMofUBk38zL5bavkkSSZIQ"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsInJvbGUiOiJ1c2VyIiwiZW1haWwiOiJwZWRyb0BwZWRyby5jb20iLCJpYXQiOjE2OTg2OTAzOTgsImV4cCI6MTY5ODczMzU5OH0.LZuRc0Ynb9e2it1V1yXfTP1REziAPWY74LT49OAiIKQ"
             },
             "tests": []
         },
@@ -87,22 +87,56 @@
             "_id": "acd121f6-bdb6-46d4-ab8e-d0e17bde81bb",
             "colId": "620fd0b2-f663-41d4-a7f9-7e302374afb6",
             "containerId": "",
-            "name": "login",
+            "name": "user login",
             "url": "localhost:4000/user/login",
             "method": "POST",
             "sortNum": 60000,
             "created": "2023-10-29T23:41:20.083Z",
-            "modified": "2023-10-29T23:41:20.083Z",
+            "modified": "2023-10-30T18:26:38.216Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"email\":\"noelia@noelia.com\",\n  \"password\":\"noelia\"\n}",
+                "raw": "{\n  \"email\":\"pedro@pedro.com\",\n  \"password\":\"pedro\"\n}",
                 "form": []
             },
-            "auth": {
-                "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTUsInJvbGUiOiJzdXBlcl9hZG1pbiIsImVtYWlsIjoibm9lbGlhQG5vZWxpYS5jb20iLCJpYXQiOjE2OTg2MjAzMzIsImV4cCI6MTY5ODY2MzUzMn0.JfLkAFSu1hohmjDrGCxYEgMofUBk38zL5bavkkSSZIQ"
+            "tests": []
+        },
+        {
+            "_id": "8ed28f21-8f97-4ca9-b5ae-a2268caac015",
+            "colId": "620fd0b2-f663-41d4-a7f9-7e302374afb6",
+            "containerId": "",
+            "name": "tattoo artist register",
+            "url": "localhost:4000/tattoo_artist/register",
+            "method": "POST",
+            "sortNum": 70000,
+            "created": "2023-10-30T19:05:45.891Z",
+            "modified": "2023-10-30T20:39:38.531Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\":\"Blas Blas\",\n  \"email\":\"blas@blas.com\",\n  \"password\":\"blas\",\n  \"phone\":\"600739469\"\n \n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "73616eaa-0f85-42a7-8562-3229f45d2d62",
+            "colId": "620fd0b2-f663-41d4-a7f9-7e302374afb6",
+            "containerId": "",
+            "name": "tattoo artist login",
+            "url": "localhost:4000/tattoo_artist/login",
+            "method": "POST",
+            "sortNum": 80000,
+            "created": "2023-10-30T22:50:52.056Z",
+            "modified": "2023-10-30T22:50:52.056Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\":\"kenzo@kenzo.com\",\n  \"password\":\"kenzo\"\n}",
+                "form": []
             },
             "tests": []
         }

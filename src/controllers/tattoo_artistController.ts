@@ -43,6 +43,91 @@ const register = async (req: Request, res: Response) => {
   }
 }
 
+const login = async (req: Request, res: Response) => {
+  try {
+    const email = req.body.email
+    const password = req.body.password
+
+    const artist = await Tattoo_artist.findOneBy(
+      { email: email }
+    )
+    if (!artist) {
+      return res.status(400).json(
+        {
+          success: true,
+          message: 'Email or password incorrect',
+        }
+      )
+    }
+
+    if (!bcrypt.compareSync(password, artist.password)) {
+      return res.status(400).json(
+        {
+          success: true,
+          message: 'Email or password incorrect',
+        }
+      )
+    }
+
+    const token = jwt.sign(
+      {
+        id: artist.id,
+        role: artist.role,
+        email: artist.email
+      },
+      "BE$UG0",
+      {
+        expiresIn: "12h",
+      }
+    );
+
+    return res.json(
+      {
+        success: true,
+        message: "Tattoo artist logged succesfully",
+        token: token
+      }
+    )
+  } catch (error) {
+    return res.status(500).json(
+      {
+        success: false,
+        message: "Tattoo artist cant be logged",
+        error: error
+      }
+    )
+  }
+}
+
+const getAllTattooArtist = async (req: Request, res: Response) => {
+  try {
+      const artist = await Tattoo_artist.find()
+  
+      if (!artist) {
+      return res.status(400).json(
+        {
+          success: true,
+          message: 'There are no tattoo artists',
+        }
+      )
+    }
+      return res.json(
+      {
+        success: true,
+        message: "Tattoo artist logged succesfully",
+        data: artist
+      }
+    )
+  } catch (error) {
+    return res.status(500).json(
+      {
+        success: false,
+        message: "Tattoo artist cant be logged",
+        error: error
+      }
+    )
+  }
+}
 
 
-export { register, }
+export { register, login, getAllTattooArtist}
