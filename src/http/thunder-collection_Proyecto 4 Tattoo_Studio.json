@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "Proyecto 4 Tattoo_Studio",
-    "dateExported": "2023-10-29T21:55:57.238Z",
+    "dateExported": "2023-10-29T23:43:43.930Z",
     "version": "1.1",
     "folders": [],
     "requests": [
@@ -9,7 +9,7 @@
             "_id": "b2d1a37a-c152-4382-b2b4-802ce9d422c4",
             "colId": "620fd0b2-f663-41d4-a7f9-7e302374afb6",
             "containerId": "",
-            "name": "localhost:4000/user/register",
+            "name": "register",
             "url": "localhost:4000/user/register",
             "method": "POST",
             "sortNum": 10000,
@@ -25,29 +25,10 @@
             "tests": []
         },
         {
-            "_id": "d1f44a38-6fc2-4450-8018-2d81ea6e198d",
-            "colId": "620fd0b2-f663-41d4-a7f9-7e302374afb6",
-            "containerId": "",
-            "name": "localhost:4000/user/login",
-            "url": "localhost:4000/user/login",
-            "method": "POST",
-            "sortNum": 20000,
-            "created": "2023-10-29T16:54:13.171Z",
-            "modified": "2023-10-29T18:59:01.223Z",
-            "headers": [],
-            "params": [],
-            "body": {
-                "type": "json",
-                "raw": "{\n  \"email\":\"noelia@noelia.com\",\n  \"password\":\"noelia\"\n}",
-                "form": []
-            },
-            "tests": []
-        },
-        {
             "_id": "92d57fe8-4bf2-426c-ac17-3de79edd3cf0",
             "colId": "620fd0b2-f663-41d4-a7f9-7e302374afb6",
             "containerId": "",
-            "name": "localhost:4000/user/profile",
+            "name": "profile",
             "url": "localhost:4000/user/profile",
             "method": "GET",
             "sortNum": 30000,
@@ -65,22 +46,63 @@
             "_id": "109de099-35e5-4ffe-8550-bbfb3a2962ef",
             "colId": "620fd0b2-f663-41d4-a7f9-7e302374afb6",
             "containerId": "",
-            "name": "localhost:4000/user/updateUserByToken",
+            "name": "updateUserByToken",
             "url": "localhost:4000/user/updateUserByToken",
             "method": "PUT",
             "sortNum": 40000,
             "created": "2023-10-29T21:52:35.609Z",
-            "modified": "2023-10-29T21:52:35.609Z",
+            "modified": "2023-10-29T22:57:58.150Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"name\":\"Noelia\",\n  \"email\":\"noelianuevo@noelia.com\",\n  \"phone\":\"600739469\"\n}",
+                "raw": "{\n  \"name\":\"Noelia Marcos\",\n  \"email\":\"noelia@noelia.com\",\n  \"password\":\"noelia\",\n  \"phone\":\"600739469\"\n}",
                 "form": []
             },
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTUsInJvbGUiOiJzdXBlcl9hZG1pbiIsImVtYWlsIjoibm9lbGlhQG5vZWxpYS5jb20iLCJpYXQiOjE2OTg2MTIwNjYsImV4cCI6MTY5ODY1NTI2Nn0.jr84tYImj4m4od181Yl1B7uA59HFHeO6GIbSaJIoK5Q"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTUsInJvbGUiOiJzdXBlcl9hZG1pbiIsImVtYWlsIjoibm9lbGlhbnVldm9Abm9lbGlhLmNvbSIsImlhdCI6MTY5ODYyMDIyNywiZXhwIjoxNjk4NjYzNDI3fQ.uspK1kn6zDkEZ3t98_ZEjwTwRMn_S-ShjVvtVGsz27c"
+            },
+            "tests": []
+        },
+        {
+            "_id": "26c4d90f-628f-42ca-af26-d0318f634738",
+            "colId": "620fd0b2-f663-41d4-a7f9-7e302374afb6",
+            "containerId": "",
+            "name": "deleteById",
+            "url": "localhost:4000/user/deleteById/2",
+            "method": "DELETE",
+            "sortNum": 50000,
+            "created": "2023-10-29T23:36:44.890Z",
+            "modified": "2023-10-29T23:36:44.890Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTUsInJvbGUiOiJzdXBlcl9hZG1pbiIsImVtYWlsIjoibm9lbGlhQG5vZWxpYS5jb20iLCJpYXQiOjE2OTg2MjAzMzIsImV4cCI6MTY5ODY2MzUzMn0.JfLkAFSu1hohmjDrGCxYEgMofUBk38zL5bavkkSSZIQ"
+            },
+            "tests": []
+        },
+        {
+            "_id": "acd121f6-bdb6-46d4-ab8e-d0e17bde81bb",
+            "colId": "620fd0b2-f663-41d4-a7f9-7e302374afb6",
+            "containerId": "",
+            "name": "login",
+            "url": "localhost:4000/user/login",
+            "method": "POST",
+            "sortNum": 60000,
+            "created": "2023-10-29T23:41:20.083Z",
+            "modified": "2023-10-29T23:41:20.083Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\":\"noelia@noelia.com\",\n  \"password\":\"noelia\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTUsInJvbGUiOiJzdXBlcl9hZG1pbiIsImVtYWlsIjoibm9lbGlhQG5vZWxpYS5jb20iLCJpYXQiOjE2OTg2MjAzMzIsImV4cCI6MTY5ODY2MzUzMn0.JfLkAFSu1hohmjDrGCxYEgMofUBk38zL5bavkkSSZIQ"
             },
             "tests": []
         }

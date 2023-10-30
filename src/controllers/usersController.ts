@@ -193,34 +193,26 @@ const updateUserByToken = async (req: Request, res: Response) => {
 const deleteById = async (req: Request, res: Response) => {
   try {
     const user_id = req.params.id
-
-    if (req.token.role === "super_admin") {
-      const user = await User.findOneBy(
-        { id: parseInt(user_id), }
-      )
-      if (!user) {
-        return res.status(400).json(
-          {
-            success: true,
-            message: 'User incorrect',
-          }
-        )
-      }
-      const userDelete = await User.delete(
-        { id: parseInt(user_id), }
-      )
-      return res.json(
+    const user = await User.findOneBy(
+      { id: parseInt(user_id), }
+    )
+    if (!user) {
+      return res.status(400).json(
         {
           success: true,
-          message: "You have deleted user",
+          message: 'User incorrect',
+        }
+      )
+    }
+    const userDelete = await User.delete(
+      { id: parseInt(user_id), }
+    )
+    return res.json(
+      {
+        success: true,
+        message: "You have deleted user",
 
-        })
-    }
-    else {
-      return res.json({
-        message: "It's not authorized "
       })
-    }
   } catch (error) {
     return res.json(
       {
