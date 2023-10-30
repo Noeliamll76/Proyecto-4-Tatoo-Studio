@@ -98,5 +98,35 @@ const login = async (req: Request, res: Response) => {
   }
 }
 
+const getAllTattooArtist = async (req: Request, res: Response) => {
+  try {
+      const artist = await Tattoo_artist.find()
+  
+      if (!artist) {
+      return res.status(400).json(
+        {
+          success: true,
+          message: 'There are no tattoo artists',
+        }
+      )
+    }
+      return res.json(
+      {
+        success: true,
+        message: "Tattoo artist logged succesfully",
+        data: artist
+      }
+    )
+  } catch (error) {
+    return res.status(500).json(
+      {
+        success: false,
+        message: "Tattoo artist cant be logged",
+        error: error
+      }
+    )
+  }
+}
 
-export { register, login }
+
+export { register, login, getAllTattooArtist}

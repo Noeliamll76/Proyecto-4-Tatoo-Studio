@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { register, login} from "../controllers/tattoo_artistController";
+import { register, login, getAllTattooArtist} from "../controllers/tattoo_artistController";
   
 
 import { auth } from "../middlewares/auth";
@@ -10,5 +10,6 @@ const router = Router()
 
 router.post('/register', register) 
 router.post('/login', login)
+router.get('/getAllTattooArtist', auth, isSuperAdmin, getAllTattooArtist)
 
 export {router}

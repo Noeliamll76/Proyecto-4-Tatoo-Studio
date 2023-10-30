@@ -211,6 +211,7 @@ const deleteById = async (req: Request, res: Response) => {
       {
         success: true,
         message: "You have deleted user",
+        data:user,
 
       })
   } catch (error) {
