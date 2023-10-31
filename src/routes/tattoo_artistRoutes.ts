@@ -9,7 +9,7 @@ import { isSuperAdmin } from "../middlewares/isSuperAdmin";
 const router = Router()
 
 router.post('/register', auth, isSuperAdmin, register) 
-router.post('/register', register) 
+//router.post('/register', register) 
 router.post('/login', login)
 router.get('/getAllTattooArtist', auth, isSuperAdmin, getAllTattooArtist)
 
