@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "Proyecto 4 Tattoo_Studio",
-    "dateExported": "2023-10-30T22:51:13.379Z",
+    "dateExported": "2023-10-31T12:43:43.271Z",
     "version": "1.1",
     "folders": [],
     "requests": [
@@ -14,7 +14,7 @@
             "method": "POST",
             "sortNum": 10000,
             "created": "2023-10-29T13:21:06.450Z",
-            "modified": "2023-10-30T20:41:41.067Z",
+            "modified": "2023-10-31T12:40:41.811Z",
             "headers": [],
             "params": [],
             "body": {
@@ -51,7 +51,7 @@
             "method": "PUT",
             "sortNum": 40000,
             "created": "2023-10-29T21:52:35.609Z",
-            "modified": "2023-10-29T22:57:58.150Z",
+            "modified": "2023-10-30T23:30:17.555Z",
             "headers": [],
             "params": [],
             "body": {
@@ -61,7 +61,7 @@
             },
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTUsInJvbGUiOiJzdXBlcl9hZG1pbiIsImVtYWlsIjoibm9lbGlhbnVldm9Abm9lbGlhLmNvbSIsImlhdCI6MTY5ODYyMDIyNywiZXhwIjoxNjk4NjYzNDI3fQ.uspK1kn6zDkEZ3t98_ZEjwTwRMn_S-ShjVvtVGsz27c"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6InVzZXIiLCJlbWFpbCI6Im5vZWxpYUBub2VsaWEuY29tIiwiaWF0IjoxNjk4NzA4NDI2LCJleHAiOjE2OTg3NTE2MjZ9.M5h26MG4Ad6peBZNRgvkuI4zgzHPlkx2s02g_y5RGeo"
             },
             "tests": []
         },
@@ -70,16 +70,16 @@
             "colId": "620fd0b2-f663-41d4-a7f9-7e302374afb6",
             "containerId": "",
             "name": "user deleteById",
-            "url": "localhost:4000/user/deleteById/22",
+            "url": "localhost:4000/user/deleteById/8",
             "method": "DELETE",
             "sortNum": 50000,
             "created": "2023-10-29T23:36:44.890Z",
-            "modified": "2023-10-30T18:27:04.625Z",
+            "modified": "2023-10-31T12:42:08.239Z",
             "headers": [],
             "params": [],
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsInJvbGUiOiJ1c2VyIiwiZW1haWwiOiJwZWRyb0BwZWRyby5jb20iLCJpYXQiOjE2OTg2OTAzOTgsImV4cCI6MTY5ODczMzU5OH0.LZuRc0Ynb9e2it1V1yXfTP1REziAPWY74LT49OAiIKQ"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Niwicm9sZSI6InN1cGVyX2FkbWluIiwiZW1haWwiOiJub2VsaWFAbm9lbGlhLmNvbSIsImlhdCI6MTY5ODc1NTY4MiwiZXhwIjoxNjk4Nzk4ODgyfQ.InK3OHeTnUNjnlXMpCKBJHOj1Uz75b9zromwY3fhBOc"
             },
             "tests": []
         },
@@ -92,12 +92,12 @@
             "method": "POST",
             "sortNum": 60000,
             "created": "2023-10-29T23:41:20.083Z",
-            "modified": "2023-10-30T18:26:38.216Z",
+            "modified": "2023-10-30T23:16:16.415Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"email\":\"pedro@pedro.com\",\n  \"password\":\"pedro\"\n}",
+                "raw": "{\n  \"email\":\"noelia@noelia.com\",\n  \"password\":\"noelia\"\n}",
                 "form": []
             },
             "tests": []

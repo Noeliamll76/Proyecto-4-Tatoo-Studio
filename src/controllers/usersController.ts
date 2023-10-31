@@ -67,7 +67,7 @@ const login = async (req: Request, res: Response) => {
         }
       )
     }
-
+    console.log (user.role)
     const token = jwt.sign(
       {
         id: user.id,
