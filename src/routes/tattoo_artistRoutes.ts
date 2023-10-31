@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { register, login, getAllTattooArtist} from "../controllers/tattoo_artistController";
+import { register, login, getAllTattooArtist, deleteArtistById} from "../controllers/tattoo_artistController";
   
 
 import { auth } from "../middlewares/auth";
@@ -12,5 +12,7 @@ router.post('/register', auth, isSuperAdmin, register)
 //router.post('/register', register) 
 router.post('/login', login)
 router.get('/getAllTattooArtist', auth, isSuperAdmin, getAllTattooArtist)
+router.delete('/deleteArtistById/:id', auth, isSuperAdmin, deleteArtistById)
+
 
 export {router}

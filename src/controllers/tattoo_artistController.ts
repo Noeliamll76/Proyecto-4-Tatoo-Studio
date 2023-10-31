@@ -129,5 +129,40 @@ const getAllTattooArtist = async (req: Request, res: Response) => {
   }
 }
 
+const deleteArtistById = async (req: Request, res: Response) => {
+  try {
+    const artist_id = req.params.id
 
-export { register, login, getAllTattooArtist}
+    const artist = await Tattoo_artist.findOneBy(
+      { id: parseInt(artist_id), }
+    )
+    if (!artist) {
+      return res.status(400).json(
+        {
+          success: true,
+          message: 'Tattoo artist incorrect',
+        }
+      )
+    }
+    const artistDelete = await Tattoo_artist.delete(
+      { id: parseInt(artist_id), }
+    )
+    return res.json(
+      {
+        success: true,
+        message: "You have deleted tattoo artist",
+        data:artist,
+
+      })
+  } catch (error) {
+    return res.json(
+      {
+        success: false,
+        message: "Tattoo artist cant be deleted",
+        error: error
+      }
+    )
+  }
+}
+
+export { register, login, getAllTattooArtist, deleteArtistById}
