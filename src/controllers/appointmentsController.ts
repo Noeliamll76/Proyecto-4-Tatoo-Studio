@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { Tattoo_artist } from "../models/Tattoo_artist";
 import { User } from "../models/User";
-import { Appointment1698697719952} from "../migration/1698697719952-appointment"
+
 
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";

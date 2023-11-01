@@ -1,6 +1,6 @@
 
-import { BaseEntity, Column, Entity, JoinTable, ManyToMany, OneToMany, PrimaryGeneratedColumn, Timestamp } from "typeorm"
-import { Url, UrlObject } from "url"
+import { BaseEntity, Column, Entity, JoinTable, ManyToOne, PrimaryGeneratedColumn, Timestamp } from "typeorm"
+
 
 
 @Entity("works")
@@ -24,8 +24,5 @@ created_at!:Date
 
 @Column()
 update_at!:Date             
-
-
-
 
 }   
