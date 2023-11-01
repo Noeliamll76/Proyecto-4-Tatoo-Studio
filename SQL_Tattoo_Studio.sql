@@ -1,0 +1,1 @@
+SELECT * FROM `tattoo-studio`.migrations;
