@@ -1,6 +1,6 @@
-import { MigrationInterface, QueryRunner, Table } from "typeorm"
+import { MigrationInterface, QueryRunner, Table, TableIndex } from "typeorm"
 
-export class Appointment1698697719952 implements MigrationInterface {
+export class Appointment1698847448435 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.createTable(
@@ -70,10 +70,14 @@ export class Appointment1698697719952 implements MigrationInterface {
             }),
             true
         );
+        await queryRunner.createIndex('appointment', new TableIndex({
+            name: 'unique_user_artist_date_shift',
+            columnNames: [ 'user_id', 'artist_id','date', 'shift'],
+            isUnique: true,
+          }));
 }
     public async down(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.dropTable("appointment");
     }
 
 }
-
