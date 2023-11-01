@@ -1,6 +1,6 @@
 import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from "typeorm"
-
-
+import { Tattoo_artist } from "./Tattoo_artist"
+import { User } from "./User"
 
 @Entity("appointment")
 
