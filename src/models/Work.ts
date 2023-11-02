@@ -5,7 +5,7 @@ import { BaseEntity, Column, Entity, JoinTable, ManyToOne, PrimaryGeneratedColum
 
 @Entity("works")
 
-export class works extends BaseEntity {
+export class Work extends BaseEntity {
 
 @PrimaryGeneratedColumn()
 id!:number

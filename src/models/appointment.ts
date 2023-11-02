@@ -1,4 +1,4 @@
-import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from "typeorm"
+import { BaseEntity, Column, Entity, PrimaryGeneratedColumn,ManyToOne, JoinColumn } from "typeorm"
 import { Tattoo_artist } from "./Tattoo_artist"
 import { User } from "./User"
 
@@ -16,13 +16,13 @@ user_id!:number
 artist_id!:number
 
 @Column()
-date!:Date
+date!:string
 
 @Column()
 shift!:string
 
 @Column()
-work!:string
+type_work!:string
 
 @Column()
 description!:string
@@ -31,6 +31,13 @@ description!:string
 created_at!:Date
 
 @Column()
-update_at!:Date             
+updated_at!:Date             
 
+@ManyToOne(() => User, (user) => user.userCitas)
+  @JoinColumn({ name: "user_id" }) //campo en la bd
+  userAppointment!: User;
+
+@ManyToOne(() => Tattoo_artist, (tattoo_artist) => tattoo_artist.artistCitas)
+  @JoinColumn({ name: "artist_id" }) //campo en la bd
+  artistAppointment!: User;
 }   

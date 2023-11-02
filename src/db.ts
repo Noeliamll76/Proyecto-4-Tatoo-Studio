@@ -7,6 +7,8 @@ import { User1698697480984 } from "./migration/1698697480984-user"
 import { TattooArtist1698697121006 } from "./migration/1698697121006-tattoo_artist"
 import { Works1698848725255 } from "./migration/1698848725255-works"
 import { Appointment1698856686137 } from "./migration/1698856686137-appointment"
+import { Work } from "./models/Work"
+import { Appointment } from "./models/Appointment"
 
 export const AppDataSource = new DataSource({
     type: "mysql",
@@ -15,7 +17,7 @@ export const AppDataSource = new DataSource({
     username: "root",
     password: "1234",
     database: "tattoo-studio",
-    entities: [User, Tattoo_artist],
+    entities: [User, Tattoo_artist, Appointment, Work],
     migrations: [User1698697480984,
         TattooArtist1698697121006,
         Works1698848725255,

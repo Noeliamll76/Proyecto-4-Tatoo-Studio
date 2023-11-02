@@ -1,6 +1,7 @@
 
 import { BaseEntity, Column, Entity, JoinTable, ManyToMany, OneToMany, PrimaryGeneratedColumn, Timestamp } from "typeorm"
 import { Tattoo_artist } from "./Tattoo_artist"
+import { Appointment } from "./Appointment"
 
 @Entity("user")
 
@@ -31,10 +32,10 @@ is_active!:boolean
 created_at!:Date
 
 @Column()
-update_at!:Date             
+update_at!:Date      
 
-@OneToMany(() => Tattoo_artist, (artist) => artist.user)
-artists!: Tattoo_artist[]                
+@OneToMany(() => Appointment, (appointment) => appointment.userAppointment)
+userCitas!: Appointment[]    
 
 @ManyToMany(()=> Tattoo_artist)   // muchos a muchos con clase Tattoo_artist con una tabla union
 @JoinTable({   //union con tabla intermedia

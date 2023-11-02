@@ -8,7 +8,7 @@ import { isSuperAdmin } from "../middlewares/isSuperAdmin";
 
 const router = Router()
 
-router.post('/register', auth, register) 
+router.post('/register/:id', auth, register) 
 
 
 export {router}

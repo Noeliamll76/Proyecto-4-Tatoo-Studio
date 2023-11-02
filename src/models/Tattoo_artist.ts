@@ -1,6 +1,7 @@
 
-import { BaseEntity, Column, Entity, JoinTable, ManyToMany, ManyToOne, JoinColumn, PrimaryGeneratedColumn, Timestamp } from "typeorm"
+import { BaseEntity, Column, Entity, JoinTable, ManyToMany, ManyToOne, JoinColumn, PrimaryGeneratedColumn, OneToMany, Timestamp } from "typeorm"
 import { User } from "./User"
+import { Appointment } from "./Appointment"
 
 @Entity("tattoo_artist")
 
@@ -33,9 +34,9 @@ created_at!:Date
 @Column()
 update_at!:Date             
 
-@ManyToOne(() => User, (user) => user.artists)
-  @JoinColumn({ name: "user_id" }) //campo en la bd
-  user!: User;
+@OneToMany(() => Appointment, (appointment) => appointment.artistAppointment)
+artistCitas!: Appointment[]    
+
 
   @ManyToMany(() => User)
     @JoinTable({

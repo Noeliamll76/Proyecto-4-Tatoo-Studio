@@ -24,7 +24,8 @@ export class Appointment1698856686137 implements MigrationInterface {
                     },
                     {
                         name: "date",
-                        type: "date"
+                        type: "varchar",
+                        length: "255"
                     },
                     {
                         name: "shift",
