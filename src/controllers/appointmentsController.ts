@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { Tattoo_artist } from "../models/Tattoo_artist";
 import { Appointment } from "../models/Appointment";
-import {} from "dayjs";
+import { } from "dayjs";
 
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
@@ -9,14 +9,13 @@ import jwt from "jsonwebtoken";
 
 const register = async (req: Request, res: Response) => {
   try {
-
     if (req.token.id !== parseInt(req.params.id))
       return res.status(400).json(
-      {
-        success: false,
-        message: 'User incorrect',
-      })
-    
+        {
+          success: false,
+          message: 'User incorrect',
+        })
+
     const artist_id = req.body.artist_id
     const date = req.body.date
     const shift = (req.body.shift).toLowerCase()
@@ -24,20 +23,20 @@ const register = async (req: Request, res: Response) => {
     const description = req.body.description
 
     const correctDate = date.replace(/\//g, "-");
-    const validar= /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/;
-    console.log (validar)
-    console.log (correctDate)
+    const validar = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/;
     const validarDate = validar.test(correctDate)
     if (validarDate === false) {
       return res.json(
-        { message: validarDate,        
-          error: "Date incorrect" }
-        );
+        {
+          message: validarDate,
+          error: "Date incorrect, must be YYYY-MM-DD"
+        }
+      );
     }
 
     const artist = await Tattoo_artist.findOneBy({
-       id: parseInt(artist_id)
-       })
+      id: parseInt(artist_id)
+    })
     if (!artist) {
       return res.status(400).json(
         {
@@ -47,30 +46,39 @@ const register = async (req: Request, res: Response) => {
       )
     }
 
-    const artistAvailable = await Appointment.findOne({ 
+    const artistNotAvailable = await Appointment.findOne({
       where:
       {
         artist_id,
         date: correctDate,
-        shift: shift 
+        shift: shift
       },
     });
-    if (artistAvailable) {
+    if (artistNotAvailable) {
       return res.json({
         error: "This tattoo artist has that date and shift busy ",
       });
     }
-  
+    if (shift != "mañana" && shift != "tarde") {
+      return res.json({
+        error: "The shift must be mañana or tarde",
+      });
+    }
+    if (type_work != "piercing" && type_work != "tattoo") {
+      return res.json({
+        error: "The type_work must be piercing or tattoo",
+      });
+    }
     const appointmentCreated = await Appointment.create(
-{      
+      {
         user_id: req.token.id,
         artist_id: parseInt(artist_id),
         date: correctDate,
         shift: shift,
         type_work: type_work,
         description: description,
-}).save()
-    
+      }).save()
+
     return res.json(
       {
         success: true,
