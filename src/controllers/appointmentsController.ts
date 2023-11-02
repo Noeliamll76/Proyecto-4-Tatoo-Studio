@@ -1,10 +1,12 @@
 import { Request, Response } from "express";
 import { Tattoo_artist } from "../models/Tattoo_artist";
+import { User } from "../models/User";
 import { Appointment } from "../models/Appointment";
 import { } from "dayjs";
 
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+
 
 
 const register = async (req: Request, res: Response) => {
@@ -97,5 +99,59 @@ const register = async (req: Request, res: Response) => {
   }
 }
 
+const loginAppointmentsById = async (req: Request, res: Response) => {
+  try {
+    if (req.token.id !== parseInt(req.params.id))
+      return res.status(400).json(
+        {
+          success: false,
+          message: 'User incorrect',
+        })
 
-export { register }
+      const userAppointments = await Appointment.find({
+      where: {
+        user_id: req.token.id
+      },
+      select: {
+        id: true,
+        artist_id: true,
+        type_work: true,
+        description: true,
+        date: true,
+        shift: true,
+      },
+      relations: {
+        userAppointment: true,
+        artistAppointment: true,
+      },
+    });
+
+    const filteredAppointments = userAppointments.map((appointment) => ({
+      id: appointment.id,
+      artist_id: appointment.artist_id,
+      type_work: appointment.type_work,
+      description: appointment.description,
+      date: appointment.date,
+      shift: appointment.shift,
+      Tattoo_artist: appointment.artistAppointment.name,
+      Client: appointment.userAppointment.name,
+    }));
+
+    return res.json(
+      {
+        success: true,
+        message: "These are your appointments",
+        data: filteredAppointments
+      })
+  
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: "Appointment login failed",
+      error: error
+    });
+  }
+};
+
+
+export { register, loginAppointmentsById }

@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "Proyecto 4 Tattoo_Studio",
-    "dateExported": "2023-10-31T12:43:43.271Z",
+    "dateExported": "2023-11-02T23:00:59.714Z",
     "version": "1.1",
     "folders": [],
     "requests": [
@@ -92,7 +92,7 @@
             "method": "POST",
             "sortNum": 60000,
             "created": "2023-10-29T23:41:20.083Z",
-            "modified": "2023-10-30T23:16:16.415Z",
+            "modified": "2023-11-01T15:15:20.125Z",
             "headers": [],
             "params": [],
             "body": {
@@ -111,13 +111,17 @@
             "method": "POST",
             "sortNum": 70000,
             "created": "2023-10-30T19:05:45.891Z",
-            "modified": "2023-10-30T20:39:38.531Z",
+            "modified": "2023-10-31T12:53:14.807Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"name\":\"Blas Blas\",\n  \"email\":\"blas@blas.com\",\n  \"password\":\"blas\",\n  \"phone\":\"600739469\"\n \n}",
+                "raw": "{\n  \"name\":\"nuevo\",\n  \"email\":\"nuevo@nuevo.com\",\n  \"password\":\"nuevo\",\n  \"phone\":\"600739469\"\n \n}",
                 "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Mywicm9sZSI6ImFkbWluIiwiZW1haWwiOiJhZG9sZm9AYWRvbGZvLmNvbSIsImlhdCI6MTY5ODc1NjcyMiwiZXhwIjoxNjk4Nzk5OTIyfQ.sicmcnxB_xILZQ_dfV5F2u5lckbX9TdFFw6hf69dbu0"
             },
             "tests": []
         },
@@ -137,6 +141,83 @@
                 "type": "json",
                 "raw": "{\n  \"email\":\"kenzo@kenzo.com\",\n  \"password\":\"kenzo\"\n}",
                 "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "b7de071e-7bf4-4306-8220-0cdb7292b1c4",
+            "colId": "620fd0b2-f663-41d4-a7f9-7e302374afb6",
+            "containerId": "",
+            "name": "getAllTattooArtist por super_admin",
+            "url": "localhost:4000/tattoo_artist/getAllTattooArtist",
+            "method": "GET",
+            "sortNum": 90000,
+            "created": "2023-10-31T15:39:39.788Z",
+            "modified": "2023-11-01T15:15:50.592Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Niwicm9sZSI6InN1cGVyX2FkbWluIiwiZW1haWwiOiJub2VsaWFAbm9lbGlhLmNvbSIsImlhdCI6MTY5ODg1MTcyMCwiZXhwIjoxNjk4ODk0OTIwfQ.Rykj8mh7JS1YhEBj_ixc2S_jegRqFO_DLQZqfYQDtzk"
+            },
+            "tests": []
+        },
+        {
+            "_id": "337f5c62-cf47-4734-ba6c-24f0380e505d",
+            "colId": "620fd0b2-f663-41d4-a7f9-7e302374afb6",
+            "containerId": "",
+            "name": "deleteArtistById whit token",
+            "url": "localhost:4000/tattoo_artist/deleteArtistById/2",
+            "method": "DELETE",
+            "sortNum": 100000,
+            "created": "2023-10-31T15:53:09.698Z",
+            "modified": "2023-10-31T15:53:09.698Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Niwicm9sZSI6InN1cGVyX2FkbWluIiwiZW1haWwiOiJub2VsaWFAbm9lbGlhLmNvbSIsImlhdCI6MTY5ODc1NTY4MiwiZXhwIjoxNjk4Nzk4ODgyfQ.InK3OHeTnUNjnlXMpCKBJHOj1Uz75b9zromwY3fhBOc"
+            },
+            "tests": []
+        },
+        {
+            "_id": "ddedc74e-bce0-4d82-bece-2a4542b63af7",
+            "colId": "620fd0b2-f663-41d4-a7f9-7e302374afb6",
+            "containerId": "",
+            "name": "appointment/register by id and token",
+            "url": "localhost:4000/appointment/register/6",
+            "method": "POST",
+            "sortNum": 110000,
+            "created": "2023-11-02T20:09:11.592Z",
+            "modified": "2023-11-02T20:48:47.662Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{ \n\"artist_id\" : \"4\",\n\"date\" : \"2023/11/03\",\n\"shift\" : \"mañana\",\n\"type_work\": \"piercing\",\n\"description\" : \"Algo bonito en la pierna\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Niwicm9sZSI6InN1cGVyX2FkbWluIiwiZW1haWwiOiJub2VsaWFAbm9lbGlhLmNvbSIsImlhdCI6MTY5ODk0MjI3NCwiZXhwIjoxNjk4OTg1NDc0fQ.uUiA2Cs4MyItpn-2k0_MDBw1si_HAL0FkmakW9mAGhw"
+            },
+            "tests": []
+        },
+        {
+            "_id": "04ce7a4e-a5ae-4506-8383-d1343bbcc317",
+            "colId": "620fd0b2-f663-41d4-a7f9-7e302374afb6",
+            "containerId": "",
+            "name": "loginAppointmentsById and token",
+            "url": "localhost:4000/appointment/loginAppointmentsById/6",
+            "method": "POST",
+            "sortNum": 120000,
+            "created": "2023-11-02T23:00:40.213Z",
+            "modified": "2023-11-02T23:00:40.213Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Niwicm9sZSI6InN1cGVyX2FkbWluIiwiZW1haWwiOiJub2VsaWFAbm9lbGlhLmNvbSIsImlhdCI6MTY5ODk2MzE3OSwiZXhwIjoxNjk5MDA2Mzc5fQ.eNLURI4q10Yd73qM0BWaBk9RIAwdBqQmNlYFQxWLvCY"
             },
             "tests": []
         }

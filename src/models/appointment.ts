@@ -39,5 +39,5 @@ updated_at!:Date
 
 @ManyToOne(() => Tattoo_artist, (tattoo_artist) => tattoo_artist.artistCitas)
   @JoinColumn({ name: "artist_id" }) //campo en la bd
-  artistAppointment!: User;
+  artistAppointment!: Tattoo_artist;
 }   

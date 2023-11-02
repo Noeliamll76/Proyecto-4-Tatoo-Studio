@@ -1,1 +1,1 @@
-SELECT * FROM `tattoo-studio`.migrations;
+SELECT * FROM `tattoo-studio`.appointment;
