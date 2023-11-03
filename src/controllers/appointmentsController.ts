@@ -164,6 +164,17 @@ const loginArtistAppointments = async (req: Request, res: Response) => {
             message: 'Tattoo artist incorrect',
           })
 
+    const artist = await Tattoo_artist.findOneBy({
+      id: parseInt(req.params.id)
+    })
+    if (!artist) {
+      return res.status(500).json({
+        success: false,
+        message: "Artist tattoo doesn't exist",
+
+      })
+    }
+
     const userAppointments = await Appointment.find({
       where: {
         artist_id: parseInt(req.params.id)

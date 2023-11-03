@@ -14,7 +14,7 @@ tatuador angel 4
 
   "success": true,
   "message": "Tattoo artist logged succesfully",
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6ImFkbWluIiwiZW1haWwiOiJhbmdlbEBhbmdlbC5jb20iLCJpYXQiOjE2OTkwMzU1MzMsImV4cCI6MTY5OTA3ODczM30.4E83MeAWp4mxr-C9667vz7WRm558YBMPxW7qfu9abLo"
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6ImFkbWluIiwiZW1haWwiOiJhbmdlbEBhbmdlbC5jb20iLCJpYXQiOjE2OTkwNDgzNjksImV4cCI6MTY5OTA5MTU2OX0.55AsnoyW3A3lzUOzQnAnwh_o8vTpJ-wviKu-dmYvjrY"
 }
 zenzo 1
   "success": true,
