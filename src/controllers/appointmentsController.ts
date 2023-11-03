@@ -103,13 +103,13 @@ const loginAppointmentsById = async (req: Request, res: Response) => {
   try {
     if (req.token.id !== parseInt(req.params.id))
       if (req.token.role !== "super_admin")
-          return res.status(400).json(
-            {
-              success: false,
-              message: 'User incorrect',
-             })
+        return res.status(400).json(
+          {
+            success: false,
+            message: 'User incorrect',
+          })
 
-      const userAppointments = await Appointment.find({
+    const userAppointments = await Appointment.find({
       where: {
         user_id: parseInt(req.params.id)
       },
@@ -144,7 +144,7 @@ const loginAppointmentsById = async (req: Request, res: Response) => {
         message: "These are your appointments",
         data: filteredAppointments
       })
-  
+
   } catch (error) {
     return res.status(500).json({
       success: false,
@@ -158,13 +158,13 @@ const loginArtistAppointments = async (req: Request, res: Response) => {
   try {
     if (req.token.id !== parseInt(req.params.id))
       if (req.token.role !== "super_admin")
-          return res.status(400).json(
-            {
-              success: false,
-              message: 'Tattoo artist incorrect',
-             })
+        return res.status(400).json(
+          {
+            success: false,
+            message: 'Tattoo artist incorrect',
+          })
 
-      const userAppointments = await Appointment.find({
+    const userAppointments = await Appointment.find({
       where: {
         artist_id: parseInt(req.params.id)
       },
@@ -200,7 +200,7 @@ const loginArtistAppointments = async (req: Request, res: Response) => {
         message: `These are your appointments: `,
         data: filteredAppointments
       })
-  
+
   } catch (error) {
     return res.status(500).json({
       success: false,
@@ -210,5 +210,37 @@ const loginArtistAppointments = async (req: Request, res: Response) => {
   }
 };
 
+const deleteAppointmentById = async (req: Request, res: Response) => {
+  try {
+    const appointment_id = req.params.id
+    const appointmentToDelete = await Appointment.findOneBy(
+      {
+        id: parseInt(req.params.id),
+      });
 
-export { register, loginAppointmentsById, loginArtistAppointments }
+    if (!appointmentToDelete) {
+      return res.status(404).json({ message: "Appointment doesn't exist" });
+    }
+
+    if (appointmentToDelete.user_id !== req.token.id) {
+      if (req.token.role !== "super_admin")
+        return res.status(400).json(
+          {
+            success: false,
+            message: 'User incorrect',
+          })
+    }
+    await Appointment.delete(appointment_id);
+    return res.json(
+      {
+      success: true,
+      message: "Appointment delete successfully",
+      data:  appointmentToDelete,
+      });
+
+  } catch (error) {
+  return res.status(500).json({ error });
+}
+};
+
+export { register, loginAppointmentsById, loginArtistAppointments, deleteAppointmentById }

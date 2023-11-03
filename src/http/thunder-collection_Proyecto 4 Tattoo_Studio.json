@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "Proyecto 4 Tattoo_Studio",
-    "dateExported": "2023-11-02T23:00:59.714Z",
+    "dateExported": "2023-11-03T19:35:04.895Z",
     "version": "1.1",
     "folders": [],
     "requests": [
@@ -14,12 +14,12 @@
             "method": "POST",
             "sortNum": 10000,
             "created": "2023-10-29T13:21:06.450Z",
-            "modified": "2023-10-31T12:40:41.811Z",
+            "modified": "2023-11-03T18:07:45.066Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"name\":\"Daniela Olivares\",\n  \"email\":\"daniela@daniela.com\",\n  \"password\":\"daniela\",\n  \"phone\":\"632233444\"\n}",
+                "raw": "{\n  \"name\":\"Bruno Olivares\",\n  \"email\":\"bruno@bruno.com\",\n  \"password\":\"bruno\",\n  \"phone\":\"632233444\"\n}",
                 "form": []
             },
             "tests": []
@@ -33,12 +33,12 @@
             "method": "GET",
             "sortNum": 30000,
             "created": "2023-10-29T19:09:09.978Z",
-            "modified": "2023-10-29T19:09:09.978Z",
+            "modified": "2023-11-03T18:06:56.849Z",
             "headers": [],
             "params": [],
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTUsInJvbGUiOiJzdXBlcl9hZG1pbiIsImVtYWlsIjoibm9lbGlhQG5vZWxpYS5jb20iLCJpYXQiOjE2OTg2MDU5NDEsImV4cCI6MTY5ODY0OTE0MX0.DyyzNRWGB4SQQC9oaFbhGJCw4ACZG7bUwSmGMaamYVw"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwicm9sZSI6InVzZXIiLCJlbWFpbCI6ImlyZW5lQGlyZW5lLmNvbSIsImlhdCI6MTY5OTAzNDE2MiwiZXhwIjoxNjk5MDc3MzYyfQ.Mibt3Fmvrubg-ZSnkwWviyjvnc7PnOMOWKEVQwL79dE"
             },
             "tests": []
         },
@@ -92,12 +92,12 @@
             "method": "POST",
             "sortNum": 60000,
             "created": "2023-10-29T23:41:20.083Z",
-            "modified": "2023-11-01T15:15:20.125Z",
+            "modified": "2023-11-03T17:56:02.923Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"email\":\"noelia@noelia.com\",\n  \"password\":\"noelia\"\n}",
+                "raw": "{\n  \"email\":\"irene@irene.com\",\n  \"password\":\"irene\"\n}",
                 "form": []
             },
             "tests": []
@@ -134,7 +134,7 @@
             "method": "POST",
             "sortNum": 80000,
             "created": "2023-10-30T22:50:52.056Z",
-            "modified": "2023-10-30T22:50:52.056Z",
+            "modified": "2023-11-03T18:19:49.103Z",
             "headers": [],
             "params": [],
             "body": {
@@ -185,21 +185,21 @@
             "colId": "620fd0b2-f663-41d4-a7f9-7e302374afb6",
             "containerId": "",
             "name": "appointment/register by id and token",
-            "url": "localhost:4000/appointment/register/6",
+            "url": "localhost:4000/appointment/register/9",
             "method": "POST",
             "sortNum": 110000,
             "created": "2023-11-02T20:09:11.592Z",
-            "modified": "2023-11-02T20:48:47.662Z",
+            "modified": "2023-11-03T18:20:53.374Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{ \n\"artist_id\" : \"4\",\n\"date\" : \"2023/11/03\",\n\"shift\" : \"mañana\",\n\"type_work\": \"piercing\",\n\"description\" : \"Algo bonito en la pierna\"\n}",
+                "raw": "{ \n\"artist_id\" : \"1\",\n\"date\" : \"2023/11/18\",\n\"shift\" : \"mañana\",\n\"type_work\": \"piercing\",\n\"description\" : \"irene Algo bonito en la pierna\"\n}",
                 "form": []
             },
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Niwicm9sZSI6InN1cGVyX2FkbWluIiwiZW1haWwiOiJub2VsaWFAbm9lbGlhLmNvbSIsImlhdCI6MTY5ODk0MjI3NCwiZXhwIjoxNjk4OTg1NDc0fQ.uUiA2Cs4MyItpn-2k0_MDBw1si_HAL0FkmakW9mAGhw"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwicm9sZSI6InVzZXIiLCJlbWFpbCI6ImlyZW5lQGlyZW5lLmNvbSIsImlhdCI6MTY5OTAzNDE2MiwiZXhwIjoxNjk5MDc3MzYyfQ.Mibt3Fmvrubg-ZSnkwWviyjvnc7PnOMOWKEVQwL79dE"
             },
             "tests": []
         },
@@ -207,17 +207,53 @@
             "_id": "04ce7a4e-a5ae-4506-8383-d1343bbcc317",
             "colId": "620fd0b2-f663-41d4-a7f9-7e302374afb6",
             "containerId": "",
-            "name": "loginAppointmentsById and token",
-            "url": "localhost:4000/appointment/loginAppointmentsById/6",
+            "name": "loginAppointmentsById  whit token o super_admin",
+            "url": "localhost:4000/appointment/loginAppointmentsById/9",
             "method": "POST",
             "sortNum": 120000,
             "created": "2023-11-02T23:00:40.213Z",
-            "modified": "2023-11-02T23:00:40.213Z",
+            "modified": "2023-11-03T18:22:29.365Z",
             "headers": [],
             "params": [],
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Niwicm9sZSI6InN1cGVyX2FkbWluIiwiZW1haWwiOiJub2VsaWFAbm9lbGlhLmNvbSIsImlhdCI6MTY5ODk2MzE3OSwiZXhwIjoxNjk5MDA2Mzc5fQ.eNLURI4q10Yd73qM0BWaBk9RIAwdBqQmNlYFQxWLvCY"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Niwicm9sZSI6InN1cGVyX2FkbWluIiwiZW1haWwiOiJub2VsaWFAbm9lbGlhLmNvbSIsImlhdCI6MTY5OTAzNDAzMCwiZXhwIjoxNjk5MDc3MjMwfQ.7oAGi3TB0DZdrteGErpSu2_AqwDmS8vo9NWlv3LYewE"
+            },
+            "tests": []
+        },
+        {
+            "_id": "78a50d49-54ce-43d8-84ea-ccabe0641e57",
+            "colId": "620fd0b2-f663-41d4-a7f9-7e302374afb6",
+            "containerId": "",
+            "name": "loginArtistAppointments by id or super_admin",
+            "url": "localhost:4000/appointment/loginArtistAppointments/1",
+            "method": "POST",
+            "sortNum": 130000,
+            "created": "2023-11-03T18:24:50.814Z",
+            "modified": "2023-11-03T18:24:50.814Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Niwicm9sZSI6InN1cGVyX2FkbWluIiwiZW1haWwiOiJub2VsaWFAbm9lbGlhLmNvbSIsImlhdCI6MTY5OTAzNDAzMCwiZXhwIjoxNjk5MDc3MjMwfQ.7oAGi3TB0DZdrteGErpSu2_AqwDmS8vo9NWlv3LYewE"
+            },
+            "tests": []
+        },
+        {
+            "_id": "df2eab7d-034c-40b5-ab6d-7b57dc12f2ee",
+            "colId": "620fd0b2-f663-41d4-a7f9-7e302374afb6",
+            "containerId": "",
+            "name": "deleteAppointmentById appointment or super_admin",
+            "url": "localhost:4000/appointment/deleteAppointmentById/6",
+            "method": "DELETE",
+            "sortNum": 140000,
+            "created": "2023-11-03T19:34:44.099Z",
+            "modified": "2023-11-03T19:34:44.099Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwicm9sZSI6InVzZXIiLCJlbWFpbCI6ImlyZW5lQGlyZW5lLmNvbSIsImlhdCI6MTY5OTAzNDE2MiwiZXhwIjoxNjk5MDc3MzYyfQ.Mibt3Fmvrubg-ZSnkwWviyjvnc7PnOMOWKEVQwL79dE"
             },
             "tests": []
         }
