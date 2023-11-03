@@ -154,6 +154,61 @@ const loginAppointmentsById = async (req: Request, res: Response) => {
   }
 };
 
+const loginArtistAppointments = async (req: Request, res: Response) => {
+  try {
+    if (req.token.id !== parseInt(req.params.id))
+      if (req.token.role !== "super_admin")
+          return res.status(400).json(
+            {
+              success: false,
+              message: 'Tattoo artist incorrect',
+             })
+
+      const userAppointments = await Appointment.find({
+      where: {
+        artist_id: parseInt(req.params.id)
+      },
+      select: {
+        id: true,
+        user_id: true,
+        type_work: true,
+        description: true,
+        date: true,
+        shift: true,
+      },
+      relations: {
+        userAppointment: true,
+        artistAppointment: true,
+      },
+    });
+
+    const filteredAppointments = userAppointments.map((appointment) => ({
+      id: appointment.id,
+      Tatoo_artist: appointment.artistAppointment.name,
+      user_id: appointment.user_id,
+      Client: appointment.userAppointment.name,
+      phone: appointment.userAppointment.phone,
+      type_work: appointment.type_work,
+      description: appointment.description,
+      date: appointment.date,
+      shift: appointment.shift,
+    }));
+
+    return res.json(
+      {
+        success: true,
+        message: `These are your appointments: `,
+        data: filteredAppointments
+      })
+  
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: "Appointment login failed",
+      error: error
+    });
+  }
+};
 
 
-export { register, loginAppointmentsById }
+export { register, loginAppointmentsById, loginArtistAppointments }
