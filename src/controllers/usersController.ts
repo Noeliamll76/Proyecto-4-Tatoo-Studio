@@ -179,7 +179,7 @@ const updateUserByToken = async (req: Request, res: Response) => {
     return res.json({
       success: true,
       message: "User updated",
-      data: updateUser
+      
     })
   } catch (error) {
     return res.json({

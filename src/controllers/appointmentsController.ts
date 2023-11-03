@@ -233,14 +233,138 @@ const deleteAppointmentById = async (req: Request, res: Response) => {
     await Appointment.delete(appointment_id);
     return res.json(
       {
-      success: true,
-      message: "Appointment delete successfully",
-      data:  appointmentToDelete,
+        success: true,
+        message: "Appointment delete successfully",
+        data: appointmentToDelete,
       });
 
   } catch (error) {
-  return res.status(500).json({ error });
-}
+    return res.status(500).json({ error });
+  }
 };
 
-export { register, loginAppointmentsById, loginArtistAppointments, deleteAppointmentById }
+const updateAppointmentById = async (req: Request, res: Response) => {
+  try {
+    const user_id = req.body.user_id
+    const artist_id = req.body.artist_id
+    const date = req.body.date
+    const shift = (req.body.shift).toLowerCase()
+    const type_work = req.body.type_work
+    const description = req.body.description
+
+    const oldAppointment = await Appointment.findOneBy({
+      id: parseInt(req.params.id)
+    })
+
+    if (!oldAppointment) {
+      return res.status(400).json(
+        {
+          success: false,
+          message: "The appointment doesn't exist ",
+        }
+      )
+    }
+    if (oldAppointment.user_id !== parseInt(user_id)) {
+      return res.status(400).json(
+        {
+          success: false,
+          message: "User incorrect",
+        }
+      )
+    }
+
+    if (req.token.id !== parseInt(req.body.user_id)) {
+      if (req.token.role !== "super_admin")
+        return res.status(400).json(
+          {
+            success: false,
+            message: 'token User incorrect',
+          })
+    }
+
+    const correctDate = date.replace(/\//g, "-");
+    const validar = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/;
+    const validarDate = validar.test(correctDate)
+    if (validarDate === false) {
+      return res.json(
+        {
+          message: validarDate,
+          error: "Date incorrect, must be YYYY-MM-DD"
+        }
+      );
+    }
+
+    const artist = await Tattoo_artist.findOneBy({
+      id: parseInt(artist_id)
+    })
+    if (!artist) {
+      return res.status(400).json(
+        {
+          success: false,
+          message: 'the tattoo artist does not exist ',
+        }
+      )
+    }
+
+    if (shift != "mañana" && shift != "tarde") {
+      return res.json({
+        error: "The shift must be mañana or tarde",
+      });
+    }
+
+    if (type_work != "piercing" && type_work != "tattoo") {
+      return res.json({
+        error: "The type_work must be piercing or tattoo",
+      });
+    }
+
+    if (oldAppointment.artist_id != artist_id ||
+      oldAppointment.date != correctDate ||
+      oldAppointment.shift != shift) {
+      const artistAvailable = await Appointment.findOne({
+        where:
+        {
+          artist_id,
+          date: correctDate,
+          shift: shift
+        },
+      });
+      if (artistAvailable) {
+        return res.json({
+          error: "This tattoo artist has that date and shift busy ",
+        });
+      }
+    }
+    const appointmentUpdate = await Appointment.update(
+      {
+        id: parseInt(req.params.id)
+      },
+      {
+        user_id: user_id,
+        artist_id: parseInt(artist_id),
+        date: correctDate,
+        shift: shift,
+        type_work: type_work,
+        description: description,
+      })
+
+    return res.json(
+      {
+        success: true,
+        message: "Appointment update successfully",
+
+      }
+
+    );
+  } catch (error) {
+    return res.status(500).json(
+      {
+        success: false,
+        message: "Appointment update failed",
+        error: error
+      }
+    );
+  }
+}
+
+export { register, loginAppointmentsById, loginArtistAppointments, deleteAppointmentById, updateAppointmentById }
