@@ -75,5 +75,31 @@ const loginWorkArtist = async (req: Request, res: Response) => {
   }
 };
 
+const getAllWorks = async (req: Request, res: Response) => {
+  try {
+    
+    const works = await Work.find()
+    if (!works) {
+      return res.status(500).json({
+        success: false,
+        message: "There are no published works",
+      })
+    }
+    
+    return res.json(
+      {
+        success: true,
+        message: `These are all works: `,
+        data: works
+      })
 
-export { registerWork, loginWorkArtist  }
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: "Works login failed",
+      error: error
+    });
+  }
+};
+
+export { registerWork, loginWorkArtist, getAllWorks  }

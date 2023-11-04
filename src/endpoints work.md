@@ -19,3 +19,9 @@ Introducir:
 Datos a incluir en la consulta:
     Nada
 
+////////////////////////////////////////////////////////////////////////////
+
+GET localhost:4000/work/getAllWorks
+Muestra los trabajos de todos los tatuadores, de forma abierta.
+Datos a incluir en la consulta:
+    Nada
