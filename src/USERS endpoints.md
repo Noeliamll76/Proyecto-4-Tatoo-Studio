@@ -49,4 +49,21 @@ Datos a incluir en la consulta:
 
 ////////////////////////////////////////////////////////////////////////////
 
+DELETE localhost:4000/user/deleteById/id
+Borra el usuario que coincide con el id introducido, solo si el token tiene el rol de super_admin.
+Introducir:
+    Token
+    Id del usuario
+Datos a incluir en la consulta:
+    Nada
+
+////////////////////////////////////////////////////////////////////////////
+
+GET localhost:4000/user/getAllUsers
+Este endpoint muestra todos los usuarios si el token introducido es de un super_admin.
+Introducir:
+    Token
+Datos a incluir en la consulta:
+    Nada
+
 

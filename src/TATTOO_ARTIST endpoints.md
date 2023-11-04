@@ -1,0 +1,14 @@
+////////////////////////////////////////////////////////////////////////////
+
+POST localhost:4000/user/login
+Muestra el token del usuario solicitado.
+Introducir:
+    Sin Token
+    Sin Id
+Datos a incluir en la consulta:
+{
+  "email":"noelia@noelia.com",
+  "password":"noelia"
+}
+
+////////////////////////////////////////////////////////////////////////////
