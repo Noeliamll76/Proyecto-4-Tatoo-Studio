@@ -34,5 +34,46 @@ const registerWork = async (req: Request, res: Response) => {
   }
 }
 
+const loginWorkArtist = async (req: Request, res: Response) => {
+  try {
+    if (req.token.id !== parseInt(req.params.id))
+      if (req.token.role !== "super_admin")
+        return res.status(400).json(
+          {
+            success: false,
+            message: 'Tattoo artist incorrect',
+          })
 
-export { registerWork,   }
+    const artist = await Work.findBy({
+      createdBy_id: parseInt(req.params.id)
+    })
+    if (!artist) {
+      return res.status(500).json({
+        success: false,
+        message: "This tattoo artist has no published works",
+      })
+    }
+
+    const workArtist = await Work.findBy(
+      {
+         createdBy_id: parseInt(req.params.id)
+      },
+    )
+    return res.json(
+      {
+        success: true,
+        message: `These are your works: `,
+        data: workArtist
+      })
+
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: "Works login failed",
+      error: error
+    });
+  }
+};
+
+
+export { registerWork, loginWorkArtist  }

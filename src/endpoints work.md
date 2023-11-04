@@ -8,3 +8,14 @@ Datos a incluir en la consulta:
 "description": "Varios piercings",
 "image": "https://i.pinimg.com/originals/e2/9d/f5/e29df557329cfd350460ce16176680d0.jpg"
 }
+
+////////////////////////////////////////////////////////////////////////////
+
+POST localhost:4000/work/loginWorkArtist/6
+Muestra los trabajos de un tatuador con id y su token, y tambien con token super_admin.
+Introducir:
+    Token
+    Id
+Datos a incluir en la consulta:
+    Nada
+
