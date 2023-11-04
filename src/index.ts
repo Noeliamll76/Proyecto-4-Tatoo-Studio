@@ -2,6 +2,7 @@ import express from "express"
 import { router as routerUsers } from "./routes/usersRoutes";
 import { router as routerArtist } from "./routes/tattoo_artistRoutes";
 import { router as routerAppointment } from "./routes/appointmentRoutes";
+import { router as routerWork } from "./routes/workRoutes";
 
 import { AppDataSource } from "./db"
 
@@ -13,7 +14,7 @@ const PORT=process.env.PORT || 4000
 app.use('/user', routerUsers)
 app.use('/tattoo_artist', routerArtist)
 app.use('/appointment', routerAppointment)
-
+app.use('/work', routerWork)
 
 
 AppDataSource.initialize()
