@@ -1,5 +1,6 @@
 POST localhost:4000/user/register  
-Crea usuarios, comprobando el email y encriptando el password.
+Crea usuarios, comprobando la sintaxis del email y si hay alguien registrado con el mismo email,
+ y encriptando el password.
 Introducir:
     Sin Token
     Sin Id
@@ -65,5 +66,20 @@ Introducir:
     Token
 Datos a incluir en la consulta:
     Nada
+
+////////////////////////////////////////////////////////////////////////////
+
+PUT localhost:4000/user/updateRol
+Este endpoint cambia el rol al usuario indicado si el token introducido es de un super_admin.
+Introducir:
+    Token
+Datos a incluir en la consulta:
+{
+  "email":"bienve@bienve.com",
+  "password":"bienve",
+  "role":"admin"
+}
+
+
 
 

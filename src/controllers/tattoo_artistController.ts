@@ -28,6 +28,7 @@ const register = async (req: Request, res: Response) => {
       password: encryptedPassword,
       phone: phone
     }).save()
+    
     return res.json({
       success: true,
       message: "User created succesfully",

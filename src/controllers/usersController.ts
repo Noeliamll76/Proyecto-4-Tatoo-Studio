@@ -149,7 +149,7 @@ const updateUserByToken = async (req: Request, res: Response) => {
     if (!email) {
       email = req.token.email
     }
-    else  {
+    else {
       const validarEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
       if (!validarEmail.test(email)) {
         return res.json({ mensaje: 'invalid email' })
@@ -159,7 +159,7 @@ const updateUserByToken = async (req: Request, res: Response) => {
           email: email
         }
       )
-      if (emailNoDuplicated!.id !== req.token.id){
+      if (emailNoDuplicated!.id !== req.token.id) {
         return res.json({ mensaje: 'invalid email' })
       }
 
@@ -265,4 +265,57 @@ const getAllUsers = async (req: Request, res: Response) => {
   }
 }
 
-export { register, login, profile, updateUserByToken, deleteById, getAllUsers }
+const updateRol = async (req: Request, res: Response) => {
+  try {
+    const email = req.body.email
+    const password = req.body.password
+    const role = req.body.role
+
+    const user = await User.findOneBy(
+      { email: email }
+    )
+    if (!user) {
+      return res.status(400).json(
+        {
+          success: true,
+          message: 'User or password incorrect',
+        })
+    }
+
+    if (!bcrypt.compareSync(password, user.password)) {
+      return res.status(400).json(
+        {
+          success: true,
+          message: 'User or password incorrect',
+        })
+    }
+
+    if (role != "user" && role != "admin" && role != "super_admin")
+      return res.json({
+        error: "Role incorrect",
+      });
+
+    const updateUser = await User.update(
+      {
+        email: email
+      },
+      {
+        role: role
+      }
+    )
+
+    return res.json({
+      success: true,
+      message: "Role change",
+
+    })
+  } catch (error) {
+    return res.json({
+      success: false,
+      message: "Role cant by change",
+      error: error
+    })
+  }
+}
+
+export { register, login, profile, updateUserByToken, deleteById, getAllUsers, updateRol }

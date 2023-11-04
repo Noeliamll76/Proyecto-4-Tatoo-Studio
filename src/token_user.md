@@ -3,20 +3,10 @@ user 1
 "password":"manuel"
 "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6InVzZXIiLCJlbWFpbCI6Im1hbnVlbEBtYW51ZWwuY29tIiwiaWF0IjoxNjk5MDk1NzcxLCJleHAiOjE2OTkzNTQ5NzF9.mQXWzzJu-iTUIYac5qQhhjBmmWmAoy2pgm7gLJfD_Pc"
 
-user 3        admin
-"email":"adolfo@adolfo.com",
-"password":"adolfo"
-"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Mywicm9sZSI6ImFkbWluIiwiZW1haWwiOiJhZG9sZm9AYWRvbGZvLmNvbSIsImlhdCI6MTY5OTA5NTgzMCwiZXhwIjoxNjk5MzU1MDMwfQ.kkxS_5a-jwf3ZDDADyrHyc4FrjHEdGZWIv43-DZXAUc"
-
 user 6      super_admin
 "email":"noelia@noelia.com",
 "password":"noelia"
-"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Mywicm9sZSI6ImFkbWluIiwiZW1haWwiOiJhZG9sZm9AYWRvbGZvLmNvbSIsImlhdCI6MTY5OTA5NTgzMCwiZXhwIjoxNjk5MzU1MDMwfQ.kkxS_5a-jwf3ZDDADyrHyc4FrjHEdGZWIv43-DZXAUc"
-
-user 7
-"email":"bienve@bienve.com",
-"password":"bienve"
-"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Nywicm9sZSI6InVzZXIiLCJlbWFpbCI6ImJpZW52ZUBiaWVudmUuY29tIiwiaWF0IjoxNjk5MDk1OTc3LCJleHAiOjE2OTkzNTUxNzd9.FxQyfuDvsuOrTXHE7MNMxLcBnbxhzC3GeNanN0JA7fU"
+"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Niwicm9sZSI6InN1cGVyX2FkbWluIiwiZW1haWwiOiJub2VsaWFAbm9lbGlhLmNvbSIsImlhdCI6MTY5OTEwMTgxMSwiZXhwIjoxNjk5MzYxMDExfQ.tU0SfhHjNIjZ1nRYypQcu3K4DNFeOssKoU50d7qTSnI"
 
 user 9
 "email":"irene@irene.com",
@@ -62,3 +52,26 @@ user 17
 "email":"vanessa@vanessa.com",
 "password":"vanessa"
 "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTcsInJvbGUiOiJ1c2VyIiwiZW1haWwiOiJ2YW5lc3NhQHZhbmVzc2EuY29tIiwiaWF0IjoxNjk5MDk2NjM3LCJleHAiOjE2OTkzNTU4Mzd9.lOC2VIp534BK3YJuGIWUvBfM1AC8XspTPkiHL5yQKXk"
+
+user 18
+"email":"toni@toni.com",
+"password":"toni",
+"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTgsInJvbGUiOiJ1c2VyIiwiZW1haWwiOiJ0b25pQHRvbmkuY29tIiwiaWF0IjoxNjk5MTE5NzA1LCJleHAiOjE2OTkzNzg5MDV9.CQb1L2FEP6MyM2RUURtZKsXsrGJVvKdotjcUOwsPQtM"
+
+
+user 19
+"name": "Mery Blodimery",
+"email": "mery@mery.com",
+"password": "mery",
+"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksInJvbGUiOiJ1c2VyIiwiZW1haWwiOiJtZXJ5QG1lcnkuY29tIiwiaWF0IjoxNjk5MTE5Nzg4LCJleHAiOjE2OTkzNzg5ODh9.7sHcsKN6gMp2-1QFhcYGlRtW-Y6f_e0o6mDlcRSnbuk"    
+
+user 20
+"name": "Christian Perez",
+"email": "christian@christian.com",
+"password": "chichionicle",
+"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAsInJvbGUiOiJ1c2VyIiwiZW1haWwiOiJjaHJpc3RpYW5AY2hyaXN0aWFuLmNvbSIsImlhdCI6MTY5OTExOTgyNywiZXhwIjoxNjk5Mzc5MDI3fQ.niNAChGOWfCG0A29ObiujZmaIVyPrxWQrHPty9P2-d4"
+
+user 21
+"email":"bienve@bienve.com",
+"password":"bienve"
+"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjEsInJvbGUiOiJ1c2VyIiwiZW1haWwiOiJiaWVudmVAYmllbnZlLmNvbSIsImlhdCI6MTY5OTEyNjU3NiwiZXhwIjoxNjk5Mzg1Nzc2fQ.YU-TUtgcaWA4p_Ev3OX5bRzYStp2y7AY9CFgwQ187Po"
