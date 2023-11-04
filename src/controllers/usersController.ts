@@ -67,7 +67,7 @@ const login = async (req: Request, res: Response) => {
         }
       )
     }
-    console.log (user.role)
+
     const token = jwt.sign(
       {
         id: user.id,
@@ -76,7 +76,7 @@ const login = async (req: Request, res: Response) => {
       },
       "BE$UG0",
       {
-        expiresIn: "12h",
+        expiresIn: "72h",
       }
     );
 
@@ -146,15 +146,24 @@ const updateUserByToken = async (req: Request, res: Response) => {
       })
     }
 
-    const validarEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
     if (!email) {
       email = req.token.email
     }
+    else  {
+      const validarEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
+      if (!validarEmail.test(email)) {
+        return res.json({ mensaje: 'invalid email' })
+      }
+      const emailNoDuplicated = await User.findOneBy(
+        {
+          email: email
+        }
+      )
+      if (emailNoDuplicated!.id !== req.token.id){
+        return res.json({ mensaje: 'invalid email' })
+      }
 
-    if (!validarEmail.test(email)) {
-      return res.json({ mensaje: 'Correo electrónico no válido' })
     }
-
     if (password) {
       const encryptedPassword = bcrypt.hashSync(password, 10)
       const updateUser = await User.update(
@@ -179,7 +188,7 @@ const updateUserByToken = async (req: Request, res: Response) => {
     return res.json({
       success: true,
       message: "User updated",
-      
+
     })
   } catch (error) {
     return res.json({
@@ -211,7 +220,7 @@ const deleteById = async (req: Request, res: Response) => {
       {
         success: true,
         message: "You have deleted user",
-        data:user,
+        data: user,
 
       })
   } catch (error) {
@@ -228,9 +237,9 @@ const deleteById = async (req: Request, res: Response) => {
 
 const getAllUsers = async (req: Request, res: Response) => {
   try {
-      const allUsers = await User.find()
-  
-      if (!allUsers) {
+    const allUsers = await User.find()
+
+    if (!allUsers) {
       return res.status(400).json(
         {
           success: true,
@@ -238,7 +247,7 @@ const getAllUsers = async (req: Request, res: Response) => {
         }
       )
     }
-      return res.json(
+    return res.json(
       {
         success: true,
         message: "List of all users: ",
