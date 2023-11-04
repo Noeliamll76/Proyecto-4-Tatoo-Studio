@@ -225,4 +225,35 @@ const deleteById = async (req: Request, res: Response) => {
   }
 }
 
-export { register, login, profile, updateUserByToken, deleteById }
+
+const getAllUsers = async (req: Request, res: Response) => {
+  try {
+      const allUsers = await User.find()
+  
+      if (!allUsers) {
+      return res.status(400).json(
+        {
+          success: true,
+          message: 'There are no users',
+        }
+      )
+    }
+      return res.json(
+      {
+        success: true,
+        message: "List of all users: ",
+        data: allUsers
+      }
+    )
+  } catch (error) {
+    return res.status(500).json(
+      {
+        success: false,
+        message: "List of all users cant be logged",
+        error: error
+      }
+    )
+  }
+}
+
+export { register, login, profile, updateUserByToken, deleteById, getAllUsers }

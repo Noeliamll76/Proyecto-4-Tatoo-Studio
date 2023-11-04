@@ -165,4 +165,6 @@ const deleteArtistById = async (req: Request, res: Response) => {
   }
 }
 
+
+
 export { register, login, getAllTattooArtist, deleteArtistById}
