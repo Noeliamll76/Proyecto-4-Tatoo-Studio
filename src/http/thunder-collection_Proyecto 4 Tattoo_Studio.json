@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "Proyecto 4 Tattoo_Studio",
-    "dateExported": "2023-11-04T19:41:21.090Z",
+    "dateExported": "2023-11-04T21:28:40.109Z",
     "version": "1.1",
     "folders": [],
     "requests": [
@@ -318,6 +318,65 @@
             "auth": {
                 "type": "bearer",
                 "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Niwicm9sZSI6InN1cGVyX2FkbWluIiwiZW1haWwiOiJub2VsaWFAbm9lbGlhLmNvbSIsImlhdCI6MTY5OTEwMTgxMSwiZXhwIjoxNjk5MzYxMDExfQ.tU0SfhHjNIjZ1nRYypQcu3K4DNFeOssKoU50d7qTSnI"
+            },
+            "tests": []
+        },
+        {
+            "_id": "4a32d4b3-4605-4452-936e-cdaccfa550ae",
+            "colId": "620fd0b2-f663-41d4-a7f9-7e302374afb6",
+            "containerId": "",
+            "name": "registerWork",
+            "url": "localhost:4000/work/registerWork",
+            "method": "POST",
+            "sortNum": 180000,
+            "created": "2023-11-04T20:35:11.005Z",
+            "modified": "2023-11-04T20:35:11.005Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\r\n\"createdBy_id\" : \"6\",\r\n\"description\": \"Varios piercings\",\r\n\"image\": \"https://i.pinimg.com/originals/e2/9d/f5/e29df557329cfd350460ce16176680d0.jpg\"\r\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Niwicm9sZSI6InN1cGVyX2FkbWluIiwiZW1haWwiOiJub2VsaWFAbm9lbGlhLmNvbSIsImlhdCI6MTY5OTEwMTgxMSwiZXhwIjoxNjk5MzYxMDExfQ.tU0SfhHjNIjZ1nRYypQcu3K4DNFeOssKoU50d7qTSnI"
+            },
+            "tests": []
+        },
+        {
+            "_id": "a7ecccee-a13f-4900-8245-770cb041a01e",
+            "colId": "620fd0b2-f663-41d4-a7f9-7e302374afb6",
+            "containerId": "",
+            "name": "loginWorkArtist/6",
+            "url": "localhost:4000/work/loginWorkArtist/6",
+            "method": "POST",
+            "sortNum": 190000,
+            "created": "2023-11-04T21:11:31.621Z",
+            "modified": "2023-11-04T21:11:31.621Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Niwicm9sZSI6InN1cGVyX2FkbWluIiwiZW1haWwiOiJub2VsaWFAbm9lbGlhLmNvbSIsImlhdCI6MTY5OTEwMTgxMSwiZXhwIjoxNjk5MzYxMDExfQ.tU0SfhHjNIjZ1nRYypQcu3K4DNFeOssKoU50d7qTSnI"
+            },
+            "tests": []
+        },
+        {
+            "_id": "056556c8-073e-49cf-a190-01aa9fe4c0ac",
+            "colId": "620fd0b2-f663-41d4-a7f9-7e302374afb6",
+            "containerId": "",
+            "name": "loginAllWorks",
+            "url": "localhost:4000/work/loginAllWorks",
+            "method": "POST",
+            "sortNum": 200000,
+            "created": "2023-11-04T21:21:40.258Z",
+            "modified": "2023-11-04T21:21:40.258Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "I"
             },
             "tests": []
         }
