@@ -24,11 +24,14 @@
 Este proyecto de Gestion de Citas de un Estudio de tatuajes, requería una API funcional conectada a una base de datos con al menos una relación de uno a muchos y una relación de muchos a muchos.
 
 ## Sobre el proyecto
-En esta aplicación el usuario puede registrarse, mostrar y modificar sus datos, asi como los tatuadores. El super_admin es quien tiene el control para poder eliminar usuarios y puede acceder a la mayoria de gestiones que pueden realizar los usuarios y tatuadores con su token.
+En esta aplicación el usuario puede registrarse, mostrar y modificar sus datos, asi como los tatuadores. 
+El super_admin es quien tiene el control para poder eliminar usuarios y puede acceder a la mayoria de gestiones que pueden realizar los usuarios y tatuadores con su token.
+Tambien he añadido la creacion de trabajos realizados por cada tatuador y las login por tatuador o de todos ellos.
+
 
 ## Deploy 🚀
 <div align="center">
-   🚀🚀🚀
+   <a href="https://github.com/Noeliamll76/Proyecto-4-Tatoo-Studio"><strong>Enlace a GitHub </strong></a>🚀🚀🚀
 </div>
 
 ## Stack
