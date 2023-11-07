@@ -64,7 +64,7 @@ Tecnologías utilizadas:
 
 ## Endpoints
 <details>
-<summary>Endpoints</summary>
+<summary> Ejemplos de Endpoints</summary>
 
 !['Endpoints users'](./src/imagenes/endpoint_user_register.png)
 

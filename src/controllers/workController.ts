@@ -1,6 +1,8 @@
 import { Request, Response } from "express";
 import { Tattoo_artist } from "../models/Tattoo_artist";
 import { Work } from "../models/Work";
+import { Appointment } from "../models/Appointment";
+import { workerData } from "worker_threads";
 
 const registerWork = async (req: Request, res: Response) => {
   try {
@@ -102,4 +104,86 @@ const getAllWorks = async (req: Request, res: Response) => {
   }
 };
 
-export { registerWork, loginWorkArtist, getAllWorks  }
+const createAppointmentByWork  = async (req: Request, res: Response) => {
+  try {
+    const work_id = req.body.work_id
+    const date = req.body.date
+    const shift = (req.body.shift).toLowerCase()
+    const type_work = req.body.type_work
+  
+    const correctDate = date.replace(/\//g, "-");
+    const validar = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/;
+    const validarDate = validar.test(correctDate)
+    if (validarDate === false) {
+      return res.json(
+        {
+          message: validarDate,
+          error: "Date incorrect, must be YYYY-MM-DD"
+        }
+      );
+    }
+
+    const workSelect = await Work.findOneBy({
+      id: parseInt(req.body.work_id)
+    })
+    if (!workSelect) {
+      return res.status(400).json(
+        {
+          success: false,
+          message: 'the work does not exist ',
+        }
+      )
+    }
+
+    const artistNotAvailable = await Appointment.findOne({
+      where:
+      {
+        artist_id: workSelect.createdBy_id,
+        date: correctDate,
+        shift: shift
+      },
+    });
+    if (artistNotAvailable) {
+      return res.json({
+        error: "This tattoo artist has that date and shift busy ",
+      });
+    }
+    if (shift != "mañana" && shift != "tarde") {
+      return res.json({
+        error: "The shift must be mañana or tarde",
+      });
+    }
+    if (type_work != "piercing" && type_work != "tattoo") {
+      return res.json({
+        error: "The type_work must be piercing or tattoo",
+      });
+    }
+    const appointmentCreated = await Appointment.create(
+      {
+        user_id: req.token.id,
+        artist_id: workSelect.createdBy_id,
+        date: correctDate,
+        shift: shift,
+        type_work: type_work,
+        description: workSelect.description,
+      }).save()
+
+    return res.json(
+      {
+        success: true,
+        message: "Appointment created",
+        data: appointmentCreated
+      }
+    );
+  } catch (error) {
+    return res.status(500).json(
+      {
+        success: false,
+        message: "Appointment creation failed",
+        error: error
+      }
+    );
+  }
+}
+
+export { registerWork, loginWorkArtist, getAllWorks, createAppointmentByWork  }

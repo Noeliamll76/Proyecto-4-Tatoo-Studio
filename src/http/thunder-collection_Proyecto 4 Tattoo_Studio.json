@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "Proyecto 4 Tattoo_Studio",
-    "dateExported": "2023-11-04T21:28:40.109Z",
+    "dateExported": "2023-11-07T17:23:11.592Z",
     "version": "1.1",
     "folders": [],
     "requests": [
@@ -14,12 +14,12 @@
             "method": "POST",
             "sortNum": 10000,
             "created": "2023-10-29T13:21:06.450Z",
-            "modified": "2023-11-04T19:35:58.897Z",
+            "modified": "2023-11-06T12:02:58.313Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"name\":\"Bienve Ladrón\",\n  \"email\":\"bienve@bienve.com\",\n  \"password\":\"bienve\",\n  \"phone\":\"666777888\"\n}",
+                "raw": "{\n  \"name\":\"David Ochando\",\n  \"email\":\"david@david.com\",\n  \"password\":\"david\",\n  \"phone\":\"666777888\"\n}",
                 "form": []
             },
             "tests": []
@@ -33,12 +33,12 @@
             "method": "GET",
             "sortNum": 30000,
             "created": "2023-10-29T19:09:09.978Z",
-            "modified": "2023-11-04T11:20:57.254Z",
+            "modified": "2023-11-06T12:05:15.916Z",
             "headers": [],
             "params": [],
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6InVzZXIiLCJlbWFpbCI6Im1hbnVlbEBtYW51ZWwuY29tIiwiaWF0IjoxNjk5MDk1NzcxLCJleHAiOjE2OTkzNTQ5NzF9.mQXWzzJu-iTUIYac5qQhhjBmmWmAoy2pgm7gLJfD_Pc"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjIsInJvbGUiOiJ1c2VyIiwiZW1haWwiOiJkYXZpZEBkYXZpZC5jb20iLCJpYXQiOjE2OTkyNzIyOTMsImV4cCI6MTY5OTUzMTQ5M30.GVE3xKBgQIiGUUzrJr48AJmsylsz2robPI7RkmZHD1o"
             },
             "tests": []
         },
@@ -51,17 +51,17 @@
             "method": "PUT",
             "sortNum": 40000,
             "created": "2023-10-29T21:52:35.609Z",
-            "modified": "2023-11-04T19:32:20.219Z",
+            "modified": "2023-11-06T12:06:03.657Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"name\":\"Noelia Marcos\",\n\n  \"password\":\"noelia\",\n  \"phone\":\"600739469\"\n}",
+                "raw": "{\n  \"name\":\"David Ochando\",\n\n  \"password\":\"david\",\n  \"phone\":\"600033344\"\n}",
                 "form": []
             },
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Niwicm9sZSI6InN1cGVyX2FkbWluIiwiZW1haWwiOiJub2VsaWFAbm9lbGlhLmNvbSIsImlhdCI6MTY5OTEwMTgxMSwiZXhwIjoxNjk5MzYxMDExfQ.tU0SfhHjNIjZ1nRYypQcu3K4DNFeOssKoU50d7qTSnI"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjIsInJvbGUiOiJ1c2VyIiwiZW1haWwiOiJkYXZpZEBkYXZpZC5jb20iLCJpYXQiOjE2OTkyNzIyOTMsImV4cCI6MTY5OTUzMTQ5M30.GVE3xKBgQIiGUUzrJr48AJmsylsz2robPI7RkmZHD1o"
             },
             "tests": []
         },
@@ -92,12 +92,12 @@
             "method": "POST",
             "sortNum": 60000,
             "created": "2023-10-29T23:41:20.083Z",
-            "modified": "2023-11-04T19:23:38.315Z",
+            "modified": "2023-11-07T17:16:52.830Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"email\":\"bienve@bienve.com\",\n  \"password\":\"bienve\"\n}",
+                "raw": "{\n  \"email\":\"noelia@noelia.com\",\n  \"password\":\"noelia\"\n}",
                 "form": []
             },
             "tests": []
@@ -153,12 +153,12 @@
             "method": "GET",
             "sortNum": 90000,
             "created": "2023-10-31T15:39:39.788Z",
-            "modified": "2023-11-04T18:03:01.690Z",
+            "modified": "2023-11-07T17:17:36.603Z",
             "headers": [],
             "params": [],
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Niwicm9sZSI6InN1cGVyX2FkbWluIiwiZW1haWwiOiJub2VsaWFAbm9lbGlhLmNvbSIsImlhdCI6MTY5OTEwMTgxMSwiZXhwIjoxNjk5MzYxMDExfQ.tU0SfhHjNIjZ1nRYypQcu3K4DNFeOssKoU50d7qTSnI"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Niwicm9sZSI6InN1cGVyX2FkbWluIiwiZW1haWwiOiJub2VsaWFAbm9lbGlhLmNvbSIsImlhdCI6MTY5OTM3NzQxMiwiZXhwIjoxNjk5NjM2NjEyfQ.Mqx4JlTJxsKRAgxdlWmJDA5CrxYRW_iY9FN9t1e6Mdk"
             },
             "tests": []
         },
@@ -189,12 +189,12 @@
             "method": "POST",
             "sortNum": 110000,
             "created": "2023-11-02T20:09:11.592Z",
-            "modified": "2023-11-04T18:50:04.116Z",
+            "modified": "2023-11-06T12:08:40.065Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{ \n\"artist_id\" : \"6\",\n\"date\" : \"2023/11/25\",\n\"shift\" : \"mañana\",\n\"type_work\": \"piercing\",\n\"description\" : \"ceja\"\n}",
+                "raw": "{ \n\"artist_id\" : \"5\",\n\"date\" : \"2023/11/30\",\n\"shift\" : \"mañana\",\n\"type_work\": \"piercing\",\n\"description\" : \"ceja\"\n}",
                 "form": []
             },
             "auth": {
@@ -326,21 +326,21 @@
             "colId": "620fd0b2-f663-41d4-a7f9-7e302374afb6",
             "containerId": "",
             "name": "registerWork",
-            "url": "localhost:4000/work/registerWork",
+            "url": "localhost:4000/work/createAppointmentByWork/2",
             "method": "POST",
             "sortNum": 180000,
             "created": "2023-11-04T20:35:11.005Z",
-            "modified": "2023-11-04T20:35:11.005Z",
+            "modified": "2023-11-06T12:51:16.175Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\r\n\"createdBy_id\" : \"6\",\r\n\"description\": \"Varios piercings\",\r\n\"image\": \"https://i.pinimg.com/originals/e2/9d/f5/e29df557329cfd350460ce16176680d0.jpg\"\r\n}",
+                "raw": "{\n\"date\" : \"2023/11/30\",\n\"shift\" : \"mañana\",\n\"type_work\": \"piercing\"\n}",
                 "form": []
             },
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Niwicm9sZSI6InN1cGVyX2FkbWluIiwiZW1haWwiOiJub2VsaWFAbm9lbGlhLmNvbSIsImlhdCI6MTY5OTEwMTgxMSwiZXhwIjoxNjk5MzYxMDExfQ.tU0SfhHjNIjZ1nRYypQcu3K4DNFeOssKoU50d7qTSnI"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwicm9sZSI6InVzZXIiLCJlbWFpbCI6ImlyZW5lQGlyZW5lLmNvbSIsImlhdCI6MTY5OTA5NjA1MywiZXhwIjoxNjk5MzU1MjUzfQ.LtJTNSnBULozOCtXx_LTwgOiJMeY3KbKa9vnkeAWpW4"
             },
             "tests": []
         },
@@ -377,6 +377,29 @@
             "auth": {
                 "type": "bearer",
                 "bearer": "I"
+            },
+            "tests": []
+        },
+        {
+            "_id": "ad70282e-9a2b-4455-9bbb-6be9b2c0e731",
+            "colId": "620fd0b2-f663-41d4-a7f9-7e302374afb6",
+            "containerId": "",
+            "name": "createAppointmentByWork",
+            "url": "localhost:4000/work/createAppointmentByWork",
+            "method": "POST",
+            "sortNum": 210000,
+            "created": "2023-11-07T17:15:46.794Z",
+            "modified": "2023-11-07T17:15:46.794Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"work_id\" : \"3\",\n  \"date\" : \"2023-11-30\",\n  \"shift\" : \"tarde\",\n  \"type_work\" : \"tattoo\"\n  \n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjIsInJvbGUiOiJ1c2VyIiwiZW1haWwiOiJkYXZpZEBkYXZpZC5jb20iLCJpYXQiOjE2OTkzNzcxMjYsImV4cCI6MTY5OTYzNjMyNn0.vS8swy6okO30ma8WICO8X4-BUnq7EVY47Sdj1SzD7hw"
             },
             "tests": []
         }

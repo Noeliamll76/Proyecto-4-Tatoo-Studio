@@ -25,3 +25,18 @@ GET localhost:4000/work/getAllWorks
 Muestra los trabajos de todos los tatuadores, de forma abierta.
 Datos a incluir en la consulta:
     Nada
+
+
+////////////////////////////////////////////////////////////////////////////
+
+POST localhost:4000/work/createAppointmentByWork
+Crea una cita a partir de la seleccion de un tatuaje.
+Introducir:
+    Token
+Datos a incluir:{
+  "work_id" : "3",
+  "date" : "2023-11-30",
+  "shift" : "tarde",
+  "type_work" : "tattoo"
+  
+}
