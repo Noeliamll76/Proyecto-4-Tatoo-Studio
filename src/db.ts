@@ -12,11 +12,11 @@ import { Appointment } from "./models/Appointment"
 
 export const AppDataSource = new DataSource({
     type: "mysql",
-    host: "localhost",
+    host: process.env.DB_HOST,
     port: 3306,
-    username: "root",
-    password: "1234",
-    database: "tattoo-studio",
+    username: process.env.DB_USERNAME,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
     entities: [User, Tattoo_artist, Appointment, Work],
     migrations: [User1698697480984,
         TattooArtist1698697121006,
