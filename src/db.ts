@@ -9,6 +9,7 @@ import { Works1698848725255 } from "./migration/1698848725255-works"
 import { Appointment1698856686137 } from "./migration/1698856686137-appointment"
 import { Work } from "./models/Work"
 import { Appointment } from "./models/Appointment"
+import "dotenv/config"
 
 export const AppDataSource = new DataSource({
     type: "mysql",
