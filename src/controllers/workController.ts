@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { Tattoo_artist } from "../models/Tattoo_artist";
 import { Work } from "../models/Work";
 import { Appointment } from "../models/Appointment";
-import { workerData } from "worker_threads";
+// import { workerData } from "worker_threads";
 
 const registerWork = async (req: Request, res: Response) => {
   try {
@@ -79,27 +79,45 @@ const loginWorkArtist = async (req: Request, res: Response) => {
 
 const getAllWorks = async (req: Request, res: Response) => {
   try {
-    
-    const works = await Work.find()
+    const works = await Work.find({
+      select: {
+        id: true,
+        createdBy_id: true,
+        description: true,
+        image: true,
+      },
+      relations: {
+        works_artist: true,
+        
+      },
+    });
+
     if (!works) {
       return res.status(500).json({
         success: false,
         message: "There are no published works",
       })
     }
-    
+
+    const finalWorks = works.map((work) => ({
+      id: work.id,
+      Tatoo_artist: work.works_artist.name,
+      image: work.image,
+      description: work.description,
+    }));
+ 
     return res.json(
       {
         success: true,
         message: `These are all works: `,
-        data: works
+        data: finalWorks
       })
 
   } catch (error) {
-    return res.status(500).json({
+      return res.status(500).json({
       success: false,
       message: "Works login failed",
-      error: error
+      error: error,
     });
   }
 };

@@ -2,6 +2,7 @@
 import { BaseEntity, Column, Entity, JoinTable, ManyToMany, ManyToOne, JoinColumn, PrimaryGeneratedColumn, OneToMany, Timestamp } from "typeorm"
 import { User } from "./User"
 import { Appointment } from "./Appointment"
+import { Work } from "./Work"
 
 @Entity("tattoo_artist")
 
@@ -36,6 +37,9 @@ update_at!:Date
 
 @OneToMany(() => Appointment, (appointment) => appointment.artistAppointment)
 artistCitas!: Appointment[]    
+
+@OneToMany(() => Work, (work) => work.works_artist)
+artistWorks!: Work[] 
 
 
   @ManyToMany(() => User)

@@ -32,7 +32,7 @@ const register = async (req: Request, res: Response) => {
     return res.json({
       success: true,
       message: "User created succesfully",
-      token: newArtist
+      data: newArtist
     }
     )
   } catch (error) {

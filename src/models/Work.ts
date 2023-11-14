@@ -1,7 +1,7 @@
 
-import { BaseEntity, Column, Entity, JoinTable, ManyToOne, PrimaryGeneratedColumn, Timestamp } from "typeorm"
+import { BaseEntity, Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm"
 
-
+import { Tattoo_artist } from "./Tattoo_artist"
 
 @Entity("works")
 
@@ -23,6 +23,10 @@ image!:string
 created_at!:Date
 
 @Column()
-update_at!:Date             
+update_at!:Date       
 
-}   
+@ManyToOne(() => Tattoo_artist, (tattoo_artist) => tattoo_artist.artistWorks)
+    @JoinColumn({ name: "createdBy_id" }) //campo en la bd
+    works_artist!: Tattoo_artist   
+
+}

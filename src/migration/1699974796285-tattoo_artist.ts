@@ -1,7 +1,6 @@
-import { MigrationInterface, QueryRunner, Table } from "typeorm"
+import { MigrationInterface, QueryRunner,Table } from "typeorm"
 
-export class TattooArtist1698697121006 implements MigrationInterface {
-
+export class TattooArtist1699974796285 implements MigrationInterface {
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.createTable(
             new Table({

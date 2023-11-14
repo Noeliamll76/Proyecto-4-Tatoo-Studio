@@ -11,7 +11,7 @@ import "dotenv/config"
 const app=express()
 app.use(express.json())
 app.use(cors())
-const PORT=process.env.PORT || 4001
+const PORT=process.env.PORT || 4000
 
 app.use('/user', routerUsers)
 app.use('/tattoo_artist', routerArtist)
