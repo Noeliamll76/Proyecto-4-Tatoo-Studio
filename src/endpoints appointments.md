@@ -11,6 +11,7 @@ Datos a incluir en la consulta:
 "type_work": "tattoo",
 "description" : "Bienve Algo bonito en la pierna"
 }
+                    MODIFICO PARA NO METER id y HAGA EL REGISTRO POR TOKEN Y BODY
 
 ////////////////////////////////////////////////////////////////////////////
 

@@ -11,12 +11,13 @@ import jwt from "jsonwebtoken";
 
 const register = async (req: Request, res: Response) => {
   try {
-    if (req.token.id !== parseInt(req.params.id))
-      return res.status(400).json(
-        {
-          success: false,
-          message: 'User incorrect',
-        })
+    // if (req.token.id !== parseInt(req.params.id))
+    //   return res.status(400).json(
+    //     {
+    //       success: false,
+    //       message: 'User incorrect',
+    //     })
+    const user_id = req.body.user_id
 
     const artist_id = req.body.artist_id
     const date = req.body.date
@@ -30,8 +31,7 @@ const register = async (req: Request, res: Response) => {
     if (validarDate === false) {
       return res.json(
         {
-          message: validarDate,
-          error: "Date incorrect, must be YYYY-MM-DD"
+          message: "Date incorrect, must be YYYY-MM-DD"
         }
       );
     }
@@ -58,22 +58,36 @@ const register = async (req: Request, res: Response) => {
     });
     if (artistNotAvailable) {
       return res.json({
-        error: "This tattoo artist has that date and shift busy ",
+        message: "This tattoo artist has that date and shift busy ",
+      });
+    }
+    const userNotAvailable = await Appointment.findOne({
+      where:
+      {
+        user_id,
+        date: correctDate,
+        shift: shift
+      },
+    });
+    if (userNotAvailable) {
+      return res.json({
+        message: "You already have an appointment on that date and shift",
+     
       });
     }
     if (shift != "mañana" && shift != "tarde") {
       return res.json({
-        error: "The shift must be mañana or tarde",
+        message: "The shift must be mañana or tarde",
       });
     }
     if (type_work != "piercing" && type_work != "tattoo") {
       return res.json({
-        error: "The type_work must be piercing or tattoo",
+        message: "The type_work must be piercing or tattoo",
       });
     }
     const appointmentCreated = await Appointment.create(
       {
-        user_id: req.token.id,
+        user_id: parseInt(user_id), //req.token.id,
         artist_id: parseInt(artist_id),
         date: correctDate,
         shift: shift,

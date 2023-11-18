@@ -101,7 +101,7 @@ const getAllWorks = async (req: Request, res: Response) => {
 
     const finalWorks = works.map((work) => ({
       id: work.id,
-      Tatoo_artist: work.works_artist.name,
+      tattoo_artist: work.works_artist.name,
       image: work.image,
       description: work.description,
     }));

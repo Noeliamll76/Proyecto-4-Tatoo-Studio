@@ -12,12 +12,12 @@ const register = async (req: Request, res: Response) => {
 
     const validarEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
     if (!validarEmail.test(email)) {
-      return res.json({ mensaje: 'Correo electrónico no válido' })
+      return res.json({ message: 'Incorrect data' })
     }
 
     const user = await User.findOneBy({ email: email })
     if (user) {
-      return res.json({ message: 'Existing user', })
+      return res.json({ message: 'Incorrect data' })
     }
 
     const encryptedPassword = bcrypt.hashSync(password, 10)
@@ -110,6 +110,7 @@ const profile = async (req: Request, res: Response) => {
         data: {
           name: user!.name,
           email: user!.email,
+          password: user!.password,
           phone: user!.phone,
           role: user!.role,
           created_at: user!.created_at
@@ -131,7 +132,7 @@ const updateUserByToken = async (req: Request, res: Response) => {
   try {
     const name = req.body.name
     let email = req.body.email
-    const password = req.body.password
+    // const password = req.body.password
     const phone = req.body.phone
 
     const user = await User.findOneBy(
@@ -160,21 +161,24 @@ const updateUserByToken = async (req: Request, res: Response) => {
           email: email
         }
       )
-      if (emailNoDuplicated!.id !== req.token.id) {
-        return res.json({ mensaje: 'invalid email' })
+      if (emailNoDuplicated)
+        {
+        if (emailNoDuplicated.id !== req.token.id) 
+        {
+          return res.json({ mensaje: 'invalid email' })
+        }
       }
-
     }
-    if (password) {
-      const encryptedPassword = bcrypt.hashSync(password, 10)
-      const updateUser = await User.update(
-        {
-          id: req.token.id
-        },
-        {
-          password: encryptedPassword
-        })
-    }
+    // if (password) {
+    //   const encryptedPassword = bcrypt.hashSync(password, 10)
+    //   const updateUser = await User.update(
+    //     {
+    //       id: req.token.id
+    //     },
+    //     {
+    //       password: encryptedPassword
+    //     })
+    // }
     const updateUser = await User.update(
       {
         id: req.token.id
@@ -185,11 +189,10 @@ const updateUserByToken = async (req: Request, res: Response) => {
         phone: phone
       }
     )
-
+    if (updateUser)
     return res.json({
       success: true,
       message: "User updated",
-
     })
   } catch (error) {
     return res.json({

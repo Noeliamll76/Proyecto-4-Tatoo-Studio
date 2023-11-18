@@ -29,7 +29,7 @@ const auth = (req: Request, res: Response, next: NextFunction) => {
     next()
   } catch (error) {
     return res.json({
-      error: "Not auth"
+      error: "por el catch Not auth"
     })
   }
 }

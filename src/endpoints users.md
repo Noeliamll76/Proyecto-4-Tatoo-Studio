@@ -45,7 +45,8 @@ Datos a incluir en la consulta:
   "name":"Noelia Marcos",
   "email":"noelia@noelia.com",
   "password":"noelia",
-  "phone":"600739469"
+  "phone":"600739469",
+  
 }
 
 ////////////////////////////////////////////////////////////////////////////
