@@ -17,8 +17,9 @@ const register = async (req: Request, res: Response) => {
     //       success: false,
     //       message: 'User incorrect',
     //     })
-    const user_id = req.body.user_id
-
+    // const user_id = req.body.user_id
+    const user_id = req.token.id
+    
     const artist_id = req.body.artist_id
     const date = req.body.date
     const shift = (req.body.shift).toLowerCase()
@@ -272,6 +273,7 @@ const deleteAppointmentById = async (req: Request, res: Response) => {
 
 const updateAppointmentById = async (req: Request, res: Response) => {
   try {
+    const id = req.body.id
     const user_id = req.body.user_id
     const artist_id = req.body.artist_id
     const date = req.body.date
@@ -280,7 +282,7 @@ const updateAppointmentById = async (req: Request, res: Response) => {
     const description = req.body.description
 
     const oldAppointment = await Appointment.findOneBy({
-      id: parseInt(req.params.id)
+      id: parseInt(id)
     })
 
     if (!oldAppointment) {
@@ -364,7 +366,7 @@ const updateAppointmentById = async (req: Request, res: Response) => {
     }
     const appointmentUpdate = await Appointment.update(
       {
-        id: parseInt(req.params.id)
+        id: parseInt(req.body.id)
       },
       {
         user_id: user_id,
