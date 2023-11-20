@@ -86,6 +86,7 @@ const login = async (req: Request, res: Response) => {
       {
         success: true,
         message: "Tattoo artist logged succesfully",
+        data: artist,
         token: token
       }
     )

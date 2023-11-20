@@ -8,12 +8,12 @@ import { isSuperAdmin } from "../middlewares/isSuperAdmin";
 
 const router = Router()
 
-router.post('/register/', register) 
-// router.post('/register/', auth, register) 
-router.post('/loginAppointmentsById/:id', auth, loginAppointmentsById)
+
+router.post('/register/', auth, register) 
+router.post('/loginAppointmentsById/:id', loginAppointmentsById)
 router.post('/loginArtistAppointments/:id', auth, loginArtistAppointments)
 router.delete('/deleteAppointmentById/:id', auth, deleteAppointmentById)
-router.put('/updateAppointmentById/:id', auth, updateAppointmentById)
+router.put('/updateAppointmentById/:id', updateAppointmentById)
 
 
 

@@ -87,7 +87,7 @@ const register = async (req: Request, res: Response) => {
     }
     const appointmentCreated = await Appointment.create(
       {
-        user_id: parseInt(user_id), //req.token.id,
+        user_id: req.token.id,
         artist_id: parseInt(artist_id),
         date: correctDate,
         shift: shift,
@@ -115,13 +115,15 @@ const register = async (req: Request, res: Response) => {
 
 const loginAppointmentsById = async (req: Request, res: Response) => {
   try {
-    if (req.token.id !== parseInt(req.params.id))
-      if (req.token.role !== "super_admin")
-        return res.status(400).json(
-          {
-            success: false,
-            message: 'User incorrect',
-          })
+    
+
+    // if (req.token.id !== parseInt(req.params.id))
+    //   if (req.token.role !== "super_admin")
+    //     return res.status(400).json(
+    //       {
+    //         success: false,
+    //         message: 'User incorrect',
+    //       })
 
     const userAppointments = await Appointment.find({
       where: {

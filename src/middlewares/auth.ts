@@ -7,7 +7,7 @@ const auth = (req: Request, res: Response, next: NextFunction) => {
     if (!req.headers.authorization) {
       return res.json(
         {
-          message: 'AUTH_REQUIRED'
+          message: 'AUTH_REQUIRED no recibo req.headers.authorization'
         }
       )
     }
@@ -17,7 +17,7 @@ const auth = (req: Request, res: Response, next: NextFunction) => {
     if (!token) {
       return res.json(
         {
-          message: 'AUTH_REQUIRED'
+          message: 'AUTH_REQUIRED no recibo req.headers.authorization.split'
         }
       )
     }
