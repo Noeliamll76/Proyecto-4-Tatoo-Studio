@@ -19,7 +19,7 @@ const register = async (req: Request, res: Response) => {
     //     })
     // const user_id = req.body.user_id
     const user_id = req.token.id
-    
+
     const artist_id = req.body.artist_id
     const date = req.body.date
     const shift = (req.body.shift).toLowerCase()
@@ -73,7 +73,7 @@ const register = async (req: Request, res: Response) => {
     if (userNotAvailable) {
       return res.json({
         message: "You already have an appointment on that date and shift",
-     
+
       });
     }
     if (shift != "mañana" && shift != "tarde") {
@@ -116,7 +116,7 @@ const register = async (req: Request, res: Response) => {
 
 const loginAppointmentsById = async (req: Request, res: Response) => {
   try {
-    
+
 
     // if (req.token.id !== parseInt(req.params.id))
     //   if (req.token.role !== "super_admin")
@@ -240,10 +240,10 @@ const loginArtistAppointments = async (req: Request, res: Response) => {
 
 const deleteAppointmentById = async (req: Request, res: Response) => {
   try {
-    const appointment_id = req.params.id
+    const appointment_id = req.body.id
     const appointmentToDelete = await Appointment.findOneBy(
       {
-        id: parseInt(req.params.id),
+        id: parseInt(req.body.id),
       });
 
     if (!appointmentToDelete) {
@@ -293,24 +293,24 @@ const updateAppointmentById = async (req: Request, res: Response) => {
         }
       )
     }
+    // if (oldAppointment.user_id !== parseInt(user_id)) {
+    //   return res.status(400).json(
+    //     {
+    //       success: false,
+    //       message: "User incorrect",
+    //     }
+    //   )
+    // }
     if (oldAppointment.user_id !== parseInt(user_id)) {
-      return res.status(400).json(
-        {
-          success: false,
-          message: "User incorrect",
-        }
-      )
+      if (req.token.id !== parseInt(user_id)) {
+        if (req.token.role !== "super_admin")
+          return res.status(400).json(
+            {
+              success: false,
+              message: 'User incorrect',
+            })
+      }
     }
-
-    if (req.token.id !== parseInt(req.body.user_id)) {
-      if (req.token.role !== "super_admin")
-        return res.status(400).json(
-          {
-            success: false,
-            message: 'token User incorrect',
-          })
-    }
-
     const correctDate = date.replace(/\//g, "-");
     const validar = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/;
     const validarDate = validar.test(correctDate)

@@ -14,7 +14,7 @@ router.post('/loginAppointmentsById/:id', loginAppointmentsById)
 // router.post('/loginAppointmentsById/:id', auth, loginAppointmentsById)
 
 router.post('/loginArtistAppointments/:id', auth, loginArtistAppointments)
-router.delete('/deleteAppointmentById/:id', auth, deleteAppointmentById)
+router.delete('/deleteAppointmentById/', auth, deleteAppointmentById)
 router.put('/updateAppointmentById/', auth, updateAppointmentById)
 
 

@@ -10,7 +10,8 @@ const router = Router()
 
 router.post('/register', auth, isSuperAdmin, register) 
 router.post('/login', login)
-router.get('/getAllTattooArtist', auth, isSuperAdmin, getAllTattooArtist)
+router.get('/getAllTattooArtist', getAllTattooArtist)
+// router.get('/getAllTattooArtist', auth, isSuperAdmin, getAllTattooArtist)
 router.delete('/deleteArtistById/:id', auth, isSuperAdmin, deleteArtistById)
 
 
