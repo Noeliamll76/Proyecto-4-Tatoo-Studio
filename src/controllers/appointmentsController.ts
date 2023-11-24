@@ -117,15 +117,6 @@ const register = async (req: Request, res: Response) => {
 const loginAppointmentsById = async (req: Request, res: Response) => {
   try {
 
-
-    // if (req.token.id !== parseInt(req.params.id))
-    //   if (req.token.role !== "super_admin")
-    //     return res.status(400).json(
-    //       {
-    //         success: false,
-    //         message: 'User incorrect',
-    //       })
-
     const userAppointments = await Appointment.find({
       where: {
         user_id: parseInt(req.params.id)
@@ -173,16 +164,16 @@ const loginAppointmentsById = async (req: Request, res: Response) => {
 
 const loginArtistAppointments = async (req: Request, res: Response) => {
   try {
-    if (req.token.id !== parseInt(req.params.id))
-      if (req.token.role !== "super_admin")
-        return res.status(400).json(
-          {
-            success: false,
-            message: 'Tattoo artist incorrect',
-          })
+    // if (req.token.id !== parseInt(req.params.id))
+    //   if (req.token.role !== "super_admin")
+    //     return res.status(400).json(
+    //       {
+    //         success: false,
+    //         message: 'Tattoo artist incorrect',
+    //       })
 
     const artist = await Tattoo_artist.findOneBy({
-      id: parseInt(req.params.id)
+      id:req.token.id
     })
     if (!artist) {
       return res.status(500).json({
@@ -194,7 +185,7 @@ const loginArtistAppointments = async (req: Request, res: Response) => {
 
     const userAppointments = await Appointment.find({
       where: {
-        artist_id: parseInt(req.params.id)
+        artist_id: req.token.id
       },
       select: {
         id: true,
@@ -396,4 +387,35 @@ const updateAppointmentById = async (req: Request, res: Response) => {
   }
 }
 
-export { register, loginAppointmentsById, loginArtistAppointments, deleteAppointmentById, updateAppointmentById }
+const getAllAppointments = async (req: Request, res: Response) => {
+  try {
+    const allAppointments = await Appointment.find()
+
+    if (!allAppointments) {
+      return res.status(400).json(
+        {
+          success: true,
+          message: 'There are no appointments',
+        }
+      )
+    }
+    return res.json(
+      {
+        success: true,
+        message: "List of all appointments: ",
+        data: allAppointments
+      }
+    )
+  } catch (error) {
+    return res.status(500).json(
+      {
+        success: false,
+        message: "List of all appointments cant be logged",
+        error: error
+      }
+    )
+  }
+}
+
+
+export { register, loginAppointmentsById, loginArtistAppointments, deleteAppointmentById, updateAppointmentById, getAllAppointments }
